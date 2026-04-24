@@ -1,0 +1,35 @@
+node_modules/
+.next/
+dist/
+.turbo/
+*.tsbuildinfo
+.env
+.env.local
+.vercel/
+coverage/
+
+# Raw WhatsApp dump — large binary files, use /ingest-whatsapp to process
+content/courses/*/ingest-inbox/whatsapp/*.jpg
+content/courses/*/ingest-inbox/whatsapp/*.mp4
+content/courses/*/ingest-inbox/whatsapp/*.zip
+content/courses/*/ingest-inbox/whatsapp/*.docx
+content/courses/*/ingest-inbox/whatsapp/*.vcf
+content/courses/*/ingest-inbox/whatsapp/*.pdf
+content/courses/*/ingest-inbox/whatsapp/*.html
+content/courses/*/ingest-inbox/whatsapp/_chat.txt
+
+# Original root directories (pre-migration source — kept for reference, not versioned)
+Algorithems\ Whatsapp\ Chat/
+books/
+lectures/
+mamans/
+study_guide/
+summaries/
+tests/
+
+# Large PDFs in content — use git-lfs for these in future; omit from initial commit
+content/courses/*/textbooks/pdfs/*.pdf
+content/courses/*/tests/pdfs/*.pdf
+content/courses/*/lectures/pdfs/*.pdf
+content/courses/*/mamans/pdfs/*.pdf
+content/courses/*/summaries/*.pdf

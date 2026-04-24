@@ -1,0 +1,32 @@
+{
+  "slug": "advanced-algorithms",
+  "title_he": "נושאים מתקדמים באלגוריתמים",
+  "title_en": "Advanced Algorithms",
+  "institution": "האוניברסיטה הפתוחה",
+  "institution_en": "Open University of Israel",
+  "course_code": "20596",
+  "professor": "אסף שפירא",
+  "term": "2025B",
+  "exam_date": "2026-02-19",
+  "locale": "he",
+  "subjects": [
+    {
+      "slug": "data-structures",
+      "title_he": "מבני נתונים",
+      "title_en": "Data Structures",
+      "topics": ["fibonacci-heap", "splay-trees", "dynamic-lists"]
+    },
+    {
+      "slug": "linear-programming",
+      "title_he": "תכנון לינארי",
+      "title_en": "Linear Programming",
+      "topics": ["formulation", "duality", "simplex", "ellipsoid", "approximation"]
+    },
+    {
+      "slug": "expander-graphs",
+      "title_he": "גרפי מרחיב",
+      "title_en": "Expander Graphs",
+      "topics": ["edge-expansion", "vertex-expansion", "spectral-theory", "diameter"]
+    }
+  ]
+}

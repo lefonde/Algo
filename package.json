@@ -1,0 +1,26 @@
+{
+  "name": "study-aid",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "typecheck": "turbo typecheck",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md,mdx,css}\" --ignore-path .gitignore",
+    "format:check": "prettier --check \"**/*.{ts,tsx,json,md,mdx,css}\" --ignore-path .gitignore",
+    "validate-content": "tsx scripts/validate-content.ts",
+    "ingest": "tsx scripts/ingest.ts"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.3",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10"
+  }
+}

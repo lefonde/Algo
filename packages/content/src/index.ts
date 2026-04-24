@@ -1,0 +1,5 @@
+export * from './schemas/course'
+export * from './schemas/lectures'
+export * from './schemas/mamans'
+export * from './schemas/predictions'
+export * from './schemas/tests'
