@@ -7,6 +7,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const nextConfig = {
   transpilePackages: ['@repo/ui', '@repo/tokens', '@repo/content', '@repo/shared'],
   outputFileTracingRoot: join(__dirname, '../..'),
+  output: 'export',
+  images: { unoptimized: true },
 }
 
 export default nextConfig
