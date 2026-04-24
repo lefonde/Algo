@@ -11,6 +11,8 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
+    "@repo/content": "workspace:*",
+    "@repo/shared": "workspace:*",
     "@repo/tokens": "workspace:*"
   },
   "devDependencies": {

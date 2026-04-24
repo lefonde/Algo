@@ -1,7 +1,75 @@
 {
   "course": "advanced-algorithms",
-  "generated_at": "2026-04-24T00:00:00Z",
+  "generated_at": "2026-04-25T00:00:00Z",
   "exam_date": "2026-02-19",
   "scoring_version": "1.0",
-  "questions": []
+  "questions": [
+    {
+      "id": "lp-1",
+      "subject": "linear-programming",
+      "prompt_md": "Formulate the bipartite matching problem as a linear program and prove that the LP relaxation has an integral optimal solution.",
+      "score": 9.5,
+      "points": 29,
+      "sources": [
+        { "kind": "recent-exam", "ref": "2025-A moed A", "weight": 3.0, "quote": "LP formulation of bipartite matching appeared" },
+        { "kind": "maman", "ref": "maman-15", "weight": 2.5 },
+        { "kind": "lecture", "ref": "lecture-3", "weight": 3.0 },
+        { "kind": "past-exam", "ref": "2021-A moed B", "weight": 2.0 }
+      ],
+      "rationale_md": "Core LP topic. Appeared on recent 2025 exam, featured prominently in maman 15 and lecture 3. Formulation + integrality argument is a classic 29-point question.",
+      "trend": { "direction": "up", "delta": 1.5, "reason": "Recent exam emphasis signals continued relevance" }
+    },
+    {
+      "id": "ds-1",
+      "subject": "data-structures",
+      "prompt_md": "Describe the Splay tree splay operation and prove the amortized O(log n) access bound using the potential method.",
+      "score": 8.5,
+      "points": 29,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-2", "weight": 3.0 },
+        { "kind": "maman", "ref": "maman-12", "weight": 2.5 },
+        { "kind": "past-exam", "ref": "2019-B moed A", "weight": 2.0 }
+      ],
+      "rationale_md": "Amortized analysis of splay trees is a recurring theme. Covered in lecture 2 and maman 12, with past exam appearances."
+    },
+    {
+      "id": "eg-1",
+      "subject": "expander-graphs",
+      "prompt_md": "State and prove the relationship between the second eigenvalue of the adjacency matrix and the edge expansion of a d-regular graph (Cheeger inequality).",
+      "score": 8.0,
+      "points": 29,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-6", "weight": 3.0 },
+        { "kind": "recent-exam", "ref": "2025-A moed A", "weight": 3.0, "quote": "Expander graphs appeared" },
+        { "kind": "textbook", "ref": "course-guide-expanders", "weight": 0.5 }
+      ],
+      "rationale_md": "Spectral characterization is central to the expander graphs unit. Recent 2025 exam confirms continued emphasis."
+    },
+    {
+      "id": "ds-2",
+      "subject": "data-structures",
+      "prompt_md": "Analyze the amortized cost of DECREASE-KEY and EXTRACT-MIN in a Fibonacci heap.",
+      "score": 7.5,
+      "points": 13,
+      "sources": [
+        { "kind": "maman", "ref": "maman-11", "weight": 2.5 },
+        { "kind": "recent-exam", "ref": "2025-A moed A", "weight": 3.0 },
+        { "kind": "past-exam", "ref": "2019-A moed A", "weight": 2.0 }
+      ],
+      "rationale_md": "Fibonacci heaps are tested regularly. Smaller 13-point slot likely."
+    },
+    {
+      "id": "lp-2",
+      "subject": "linear-programming",
+      "prompt_md": "Given a primal LP, write its dual and state the weak duality theorem. Use complementary slackness to verify optimality of a given pair.",
+      "score": 7.0,
+      "points": 13,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-3", "weight": 3.0 },
+        { "kind": "maman", "ref": "maman-14", "weight": 2.5 },
+        { "kind": "past-exam", "ref": "2018-B moed B", "weight": 2.0 }
+      ],
+      "rationale_md": "Duality mechanics show up in almost every exam variation, typically as a shorter 13-point question."
+    }
+  ]
 }
