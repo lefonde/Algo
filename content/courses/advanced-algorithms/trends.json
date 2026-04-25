@@ -1,0 +1,75 @@
+{
+  "course": "advanced-algorithms",
+  "reference_exam": "2025A (two variants — 41pp and 59pp)",
+  "surprises": [
+    {
+      "topic": "Splay Trees (29pts)",
+      "expected": "Medium (6/10) — typically a 13pt question",
+      "actual": "Full 29-point question in 2025A Exam 1",
+      "implication": "Splay Trees are now confirmed as 'big question' material. Study the full proof and operations thoroughly.",
+      "question_ids": ["ds-6"]
+    },
+    {
+      "topic": "Edge Expansion at 29pts",
+      "expected": "Medium (7/10) — typically 13pt",
+      "actual": "29-point question in 2025A Exam 1",
+      "implication": "Asaf values expansion proofs higher than expected. Prepare deep expansion proofs.",
+      "question_ids": ["eg-3"]
+    },
+    {
+      "topic": "Vertex/Polytope Definitions",
+      "expected": "Medium (7/10) — דימה was 'suspicious'",
+      "actual": "Appeared as 13pt in 2025A Exam 2",
+      "implication": "דימה's instinct was correct. When he flags something as 'suspicious,' take it seriously.",
+      "question_ids": ["lp-5"]
+    }
+  ],
+  "absences": [
+    {
+      "topic": "Dynamic Lists (MF/FC/TR)",
+      "actual": "Completely absent from 2025A",
+      "implication": "VERY likely for 2026. Absence creates a 'gap' — Asaf tends to rotate topics. MF competitiveness is overdue.",
+      "question_ids": ["ds-4", "ds-5", "ds-7", "mix-5"]
+    },
+    {
+      "topic": "BPP/RP Amplification",
+      "actual": "Not tested in 2025A",
+      "implication": "Still fresh for 2026. דימה called it a 'gift question' and it connects to expander graphs.",
+      "question_ids": ["eg-5"]
+    },
+    {
+      "topic": "Eigenvalue Trace Trick",
+      "actual": "Not tested in 2025A",
+      "implication": "Prime candidate for 2026. Asaf taught it in lecture 7 and it hasn't been tested yet.",
+      "question_ids": ["eg-2"]
+    },
+    {
+      "topic": "LP Approximation Algorithm",
+      "actual": "2025A focused on formulation only, not approximation",
+      "implication": "2025A tested pure formulation. 2026 may test the approximation/dual-fitting angle instead.",
+      "question_ids": ["lp-4", "mix-6"]
+    }
+  ],
+  "confirmed": [
+    {
+      "pattern": "Fibonacci Heaps appear every exam",
+      "confirmation": "Both 2025A variants had Fib Heap Q1 (Decrease-Key amortized)"
+    },
+    {
+      "pattern": "LP Graph formulation is a staple",
+      "confirmation": "Both 2025A variants had LP+Graph (vertex coloring / max-weight edge)"
+    },
+    {
+      "pattern": "Expander graphs always tested",
+      "confirmation": "Both 2025A variants had expansion questions"
+    },
+    {
+      "pattern": "Asaf recycles across variants",
+      "confirmation": "Q1 was identical topic (Decrease-Key) in both 2025A variants"
+    },
+    {
+      "pattern": "13pt questions can be from any topic",
+      "confirmation": "13pt questions covered DS, LP, and Graphs in 2025A"
+    }
+  ]
+}

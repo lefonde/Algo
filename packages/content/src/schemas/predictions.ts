@@ -8,6 +8,7 @@ export const SourceKindSchema = z.enum([
   'whatsapp-hint',
   'sample-exam',
   'textbook',
+  'booklet',
 ])
 
 export const SourceSchema = z.object({
@@ -23,6 +24,30 @@ export const TrendSchema = z.object({
   reason: z.string(),
 })
 
+export const LinkSchema = z.object({
+  type: z.enum(['lecture', 'maman', 'book', 'exam', 'booklet', 'whatsapp']),
+  label: z.string(),
+  href: z.string(),
+})
+
+export const ImageSchema = z.object({
+  src: z.string(),
+  label: z.string(),
+})
+
+export const ChatMessageSchema = z.object({
+  s: z.string(),
+  t: z.string(),
+  d: z.boolean().optional(),
+})
+
+export const RefPinSchema = z.object({
+  type: z.enum(['lecture', 'maman', 'book', 'exam', 'booklet', 'whatsapp']),
+  file: z.string(),
+  loc: z.string(),
+  href: z.string(),
+})
+
 export const QuestionSchema = z.object({
   id: z.string().regex(/^[a-z]+-\d+$/, 'id must be like "ds-1" or "lp-9"'),
   subject: z.enum(['data-structures', 'linear-programming', 'expander-graphs', 'mixed']),
@@ -32,6 +57,10 @@ export const QuestionSchema = z.object({
   sources: z.array(SourceSchema).min(1),
   rationale_md: z.string().min(1),
   trend: TrendSchema.optional(),
+  links: z.array(LinkSchema).optional(),
+  images: z.array(ImageSchema).optional(),
+  chat: z.array(ChatMessageSchema).optional(),
+  refs: z.array(RefPinSchema).optional(),
 })
 
 export const PredictionsSchema = z.object({
@@ -47,3 +76,7 @@ export type Source = z.infer<typeof SourceSchema>
 export type SourceKind = z.infer<typeof SourceKindSchema>
 export type Trend = z.infer<typeof TrendSchema>
 export type Predictions = z.infer<typeof PredictionsSchema>
+export type Link = z.infer<typeof LinkSchema>
+export type Image = z.infer<typeof ImageSchema>
+export type ChatMessage = z.infer<typeof ChatMessageSchema>
+export type RefPin = z.infer<typeof RefPinSchema>

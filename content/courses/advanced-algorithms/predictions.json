@@ -2,74 +2,1588 @@
   "course": "advanced-algorithms",
   "generated_at": "2026-04-25T00:00:00Z",
   "exam_date": "2026-02-19",
-  "scoring_version": "1.0",
+  "scoring_version": "2.0",
   "questions": [
-    {
-      "id": "lp-1",
-      "subject": "linear-programming",
-      "prompt_md": "Formulate the bipartite matching problem as a linear program and prove that the LP relaxation has an integral optimal solution.",
-      "score": 9.5,
-      "points": 29,
-      "sources": [
-        { "kind": "recent-exam", "ref": "2025-A moed A", "weight": 3.0, "quote": "LP formulation of bipartite matching appeared" },
-        { "kind": "maman", "ref": "maman-15", "weight": 2.5 },
-        { "kind": "lecture", "ref": "lecture-3", "weight": 3.0 },
-        { "kind": "past-exam", "ref": "2021-A moed B", "weight": 2.0 }
-      ],
-      "rationale_md": "Core LP topic. Appeared on recent 2025 exam, featured prominently in maman 15 and lecture 3. Formulation + integrality argument is a classic 29-point question.",
-      "trend": { "direction": "up", "delta": 1.5, "reason": "Recent exam emphasis signals continued relevance" }
-    },
     {
       "id": "ds-1",
       "subject": "data-structures",
-      "prompt_md": "Describe the Splay tree splay operation and prove the amortized O(log n) access bound using the potential method.",
-      "score": 8.5,
+      "prompt_md": "Prove the logarithmic upper bound on degree in Fibonacci Heap: D(n) = O(log n)",
+      "score": 10,
       "points": 29,
       "sources": [
-        { "kind": "lecture", "ref": "lecture-2", "weight": 3.0 },
-        { "kind": "maman", "ref": "maman-12", "weight": 2.5 },
-        { "kind": "past-exam", "ref": "2019-B moed A", "weight": 2.0 }
+        { "kind": "maman", "ref": "maman-11-q4", "weight": 2.5 },
+        { "kind": "textbook", "ref": "ds-textbook-ch2-s2.2", "weight": 0.5 },
+        { "kind": "booklet", "ref": "booklet-pp1-3", "weight": 2.0 },
+        { "kind": "recent-exam", "ref": "2025a-exam1-q1", "weight": 3.0 },
+        { "kind": "recent-exam", "ref": "2025a-exam2-q1", "weight": 3.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-fibonacci-degree", "weight": 1.5 }
       ],
-      "rationale_md": "Amortized analysis of splay trees is a recurring theme. Covered in lecture 2 and maman 12, with past exam appearances."
-    },
-    {
-      "id": "eg-1",
-      "subject": "expander-graphs",
-      "prompt_md": "State and prove the relationship between the second eigenvalue of the adjacency matrix and the edge expansion of a d-regular graph (Cheeger inequality).",
-      "score": 8.0,
-      "points": 29,
-      "sources": [
-        { "kind": "lecture", "ref": "lecture-6", "weight": 3.0 },
-        { "kind": "recent-exam", "ref": "2025-A moed A", "weight": 3.0, "quote": "Expander graphs appeared" },
-        { "kind": "textbook", "ref": "course-guide-expanders", "weight": 0.5 }
+      "rationale_md": "Asaf teaches this nearly every semester and it appears in almost every other exam. דימה says \"there's no semester he doesn't prove this and no exam it doesn't appear.\" Even though this semester he only partially covered it (end of lecture 2), the consensus is to study it — practically guaranteed. The proof uses the golden ratio φ and showing F(k) ≥ φ^k.",
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 11",
+          "loc": "Q4 (last question)",
+          "href": "/files/mamans/maman-11.pdf"
+        },
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.2 §2.2 — Fibonacci Heaps, Theorem 2.1",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        },
+        {
+          "type": "booklet",
+          "file": "Booklet",
+          "loc": "Pages 1-3 — Fibonacci Heap theorems",
+          "href": "/files/textbooks/booklet.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 1",
+          "loc": "Q1 (p.8) — Decrease-Key variant",
+          "href": "/files/tests/2025a-exam1.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 2",
+          "loc": "Q1 (p.1) — Decrease-Key variant",
+          "href": "/files/tests/2025a-exam2.pdf"
+        }
       ],
-      "rationale_md": "Spectral characterization is central to the expander graphs unit. Recent 2025 exam confirms continued emphasis."
+      "links": [
+        { "type": "maman", "label": "Maman 11 (Q4)", "href": "/files/mamans/maman-11.pdf" },
+        {
+          "type": "lecture",
+          "label": "Lecture 2 (Linoy)",
+          "href": "/files/lectures/lecture-2-linoy.pdf"
+        },
+        {
+          "type": "lecture",
+          "label": "Lecture 3 (Linoy)",
+          "href": "/files/lectures/lecture-3-linoy.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Data Structures Textbook",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001498-PHOTO-2026-02-07-11-37-02.jpg",
+          "label": "Fibonacci degree proof (1/2)"
+        },
+        {
+          "src": "/files/whatsapp/00001499-PHOTO-2026-02-07-11-37-03.jpg",
+          "label": "Fibonacci degree proof (2/2)"
+        },
+        {
+          "src": "/files/whatsapp/00001503-PHOTO-2026-02-07-11-40-19.jpg",
+          "label": "Additional proof context"
+        },
+        {
+          "src": "/files/whatsapp/00001705-PHOTO-2026-02-10-15-47-28.jpg",
+          "label": "Maman 11 Q4 reference"
+        }
+      ],
+      "chat": [
+        { "s": "🥕", "t": "הוא הוכיח בהרצאות את לוגוריתמיות הדרגה של ערימת פיבונאצ׳י?" },
+        { "s": "דימה", "d": true, "t": "כן" },
+        { "s": "🥕", "t": "הוא אוהב לתת את זה כשאלה במבחנים?" },
+        { "s": "דימה", "d": true, "t": "כן" },
+        {
+          "s": "דימה",
+          "d": true,
+          "t": "החסם לוגריתמי אין סמסטר שהוא לא מוכיח ואין סמסטר שזה לא מופיע במבחן. בגלל זה פה זה נראה לי טעות שלו"
+        },
+        { "s": "דימה", "d": true, "t": "בכל מקרה ללמוד סיכוי גבוה שיופיע" },
+        {
+          "s": "Omer",
+          "t": "אז כן פחות הגיוני שהשאלה הזאת תופיע בבחינה, יותר הגיוני ששאלה 4 מעבודה 1 תופיע"
+        },
+        { "s": "דימה", "d": true, "t": "לדעתי עדיין יש סיכוי גבוה שתופיע" }
+      ]
     },
     {
       "id": "ds-2",
       "subject": "data-structures",
-      "prompt_md": "Analyze the amortized cost of DECREASE-KEY and EXTRACT-MIN in a Fibonacci heap.",
-      "score": 7.5,
+      "prompt_md": "Amortized analysis of Extract-Min in Fibonacci Heap",
+      "score": 10,
+      "points": 29,
+      "sources": [
+        { "kind": "textbook", "ref": "ds-textbook-ch2-s2.2.2", "weight": 0.5 },
+        { "kind": "lecture", "ref": "lecture-1", "weight": 3.0 },
+        { "kind": "booklet", "ref": "booklet-pp1-3", "weight": 2.0 },
+        { "kind": "recent-exam", "ref": "2025a-decrease-key-both-variants", "weight": 3.0 }
+      ],
+      "rationale_md": "⬆️ UPGRADED 9→10. Since 2025A tested Decrease-Key in BOTH variants, Asaf is very likely to switch to Extract-Min or D(n) bound for 2026. Standard amortized cost analysis with Φ = t(H) + 2·m(H). Actual cost O(D(n) + t(H)), potential change D(n)+1-t(H), amortized = O(D(n)) = O(log n).",
+      "trend": {
+        "direction": "up",
+        "delta": 1,
+        "reason": "2025A tested Decrease-Key in both variants — Extract-Min now the primary candidate"
+      },
+      "refs": [
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.2 §2.2.2 — Extract-Min analysis",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 1 Summary",
+          "loc": "End of lecture — Extract-Min amortized",
+          "href": "/files/lectures/lecture-1-summary.pdf"
+        },
+        {
+          "type": "booklet",
+          "file": "Booklet",
+          "loc": "Pages 1-3 — Fibonacci operations",
+          "href": "/files/textbooks/booklet.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "book",
+          "label": "Data Structures Textbook",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "label": "Lecture Notes (Summary)",
+          "href": "/files/lectures/lecture-1-summary.pdf"
+        }
+      ],
+      "images": [],
+      "chat": [
+        { "s": "Beny", "t": "יש טעם ללמוד ניתוח לשיעורין לערימת פיבונצי לשליפת מינימום" },
+        { "s": "Doron Meir", "t": "אני למדתי...יש מלא שאלות שהוא מתעסק בזה" },
+        { "s": "Omer", "t": "הוא ניתח את שליפת מינימום בסוף ההרצאה הראשונה" }
+      ]
+    },
+    {
+      "id": "ds-3",
+      "subject": "data-structures",
+      "prompt_md": "Amortized analysis of Decrease-Key in Fibonacci Heap",
+      "score": 5,
       "points": 13,
       "sources": [
-        { "kind": "maman", "ref": "maman-11", "weight": 2.5 },
-        { "kind": "recent-exam", "ref": "2025-A moed A", "weight": 3.0 },
-        { "kind": "past-exam", "ref": "2019-A moed A", "weight": 2.0 }
+        { "kind": "lecture", "ref": "lecture-3", "weight": 3.0 },
+        { "kind": "recent-exam", "ref": "2025a-exam1-q1-decrease-key", "weight": 3.0 },
+        { "kind": "recent-exam", "ref": "2025a-exam2-q1-decrease-key", "weight": 3.0 }
       ],
-      "rationale_md": "Fibonacci heaps are tested regularly. Smaller 13-point slot likely."
+      "rationale_md": "⬇️ DOWNGRADED 7→5. This was literally Q1 in BOTH 2025A variants! Asaf rarely repeats the exact same question in consecutive exams. Still possible but much less likely now.",
+      "trend": {
+        "direction": "down",
+        "delta": 2,
+        "reason": "Appeared in both 2025A variants — unlikely to repeat verbatim"
+      },
+      "refs": [
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.2 §2.2.3 — Decrease-Key with cascading cuts",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 3 (Linoy)",
+          "loc": "End of lecture — Decrease-Key amortized",
+          "href": "/files/lectures/lecture-3-linoy.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 1",
+          "loc": "Q1 (p.8) — THIS exact question",
+          "href": "/files/tests/2025a-exam1.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 2",
+          "loc": "Q1 (p.1) — THIS exact question",
+          "href": "/files/tests/2025a-exam2.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 3 (Linoy)",
+          "href": "/files/lectures/lecture-3-linoy.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Data Structures Textbook",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        },
+        { "type": "exam", "label": "2025A Exam 1 Q1", "href": "/files/tests/2025a-exam1.pdf" },
+        { "type": "exam", "label": "2025A Exam 2 Q1", "href": "/files/tests/2025a-exam2.pdf" }
+      ],
+      "images": [],
+      "chat": [
+        {
+          "s": "Lidor Bashi",
+          "t": "מה שהוא עסק בסוף הרצאה 3 זה לנתח לשיעורין הקטנת מפתח בערימת פיבונאצ'י"
+        },
+        {
+          "s": "דימה",
+          "d": true,
+          "t": "השאלה על הקטנת מפתח לגמריי בחומר וזה לא משנה אם היה בכיתה או לא היה"
+        }
+      ]
+    },
+    {
+      "id": "ds-4",
+      "subject": "data-structures",
+      "prompt_md": "MF (Move-to-Front) Competitiveness: Prove MF is 2-competitive against optimal offline",
+      "score": 9,
+      "points": 29,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-2", "weight": 3.0 },
+        { "kind": "maman", "ref": "maman-12", "weight": 2.5 },
+        { "kind": "past-exam", "ref": "past-exams-mf", "weight": 2.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-mf-proof", "weight": 1.5 }
+      ],
+      "rationale_md": "Asaf gave the full proof in lecture 2 with potential function Φ = number of inversions between MF and A. דימה confirmed \"he proved it, so it can appear.\" This is the key theorem of the dynamic lists chapter.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.3 §3.3 — MF competitiveness theorem",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 2 (Linoy)",
+          "loc": "Full proof with potential function Φ",
+          "href": "/files/lectures/lecture-2-linoy.pdf"
+        },
+        {
+          "type": "maman",
+          "file": "Maman 12",
+          "loc": "Q1 — FC vs MF comparison",
+          "href": "/files/mamans/maman-12.pdf"
+        },
+        {
+          "type": "booklet",
+          "file": "Booklet",
+          "loc": "Pages 4-6 — Dynamic lists",
+          "href": "/files/textbooks/booklet.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 2 (Linoy)",
+          "href": "/files/lectures/lecture-2-linoy.pdf"
+        },
+        { "type": "maman", "label": "Maman 12", "href": "/files/mamans/maman-12.pdf" },
+        {
+          "type": "book",
+          "label": "Data Structures Textbook",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        }
+      ],
+      "images": [],
+      "chat": [
+        {
+          "s": "Omer",
+          "t": "נגדיר את a - כל המפתחות שנמצאים לפני x גם ב-MF וגם ב-A\nנגדיר את b - כל המפתחות שנמצאים לפני x ב-MF אבל אחרי x ב-A\nנגדיר את פי - כל זוג שהסדר שלו הפוך תורם 1 לפוטנציאל."
+        },
+        { "s": "דימה", "d": true, "t": "זה נראה כמו ניפנופי ידיים אבל זאת ההוכחה" },
+        { "s": "דימה", "d": true, "t": "צריך לדעת את החרטטת מההרצאה" },
+        { "s": "Lidor Bashi", "t": "בהוכחה המלאה בספר יש קצת טכניקה..." }
+      ]
+    },
+    {
+      "id": "ds-5",
+      "subject": "data-structures",
+      "prompt_md": "Construct input sequence S where FC/MF cost ratio exceeds a constant",
+      "score": 8,
+      "points": 13,
+      "sources": [{ "kind": "maman", "ref": "maman-12-q1", "weight": 2.5 }],
+      "rationale_md": "Direct maman question — compute exact costs for FC and MF on a crafted input. Requires precise calculation (no hiding behind O-notation). Very likely to be the \"maman question\" for data structures.",
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 12",
+          "loc": "Q1 — Construct adversarial sequence",
+          "href": "/files/mamans/maman-12.pdf"
+        },
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.3 §3.4 — Algorithm comparisons",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 12 (Q1)", "href": "/files/mamans/maman-12.pdf" }
+      ],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "ds-6",
+      "subject": "data-structures",
+      "prompt_md": "Splay Trees: operations, state drawing, amortized analysis",
+      "score": 9,
+      "points": 29,
+      "sources": [
+        { "kind": "maman", "ref": "maman-12-q2b", "weight": 2.5 },
+        { "kind": "lecture", "ref": "lecture-2", "weight": 3.0 },
+        { "kind": "recent-exam", "ref": "2025a-exam1-q2-29pts", "weight": 3.0 }
+      ],
+      "rationale_md": "⬆️ UPGRADED 6→9. Splay Trees appeared as a FULL 29-point question in 2025A Exam 1! This confirms Asaf considers Splay Trees exam-worthy at the highest weight. Study the full proof and operations thoroughly.",
+      "trend": {
+        "direction": "up",
+        "delta": 3,
+        "reason": "2025A Exam 1 Q2 was a full 29-point Splay Tree question"
+      },
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 12",
+          "loc": "Q2b — Splay tree depth analysis",
+          "href": "/files/mamans/maman-12.pdf"
+        },
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.1 §1.3 — Splay Trees (Zig-Zig, Zig-Zag)",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 2 (Linoy)",
+          "loc": "Splay tree operations",
+          "href": "/files/lectures/lecture-2-linoy.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 1",
+          "loc": "Q2 (p.9) — 29pts! Full splay question",
+          "href": "/files/tests/2025a-exam1.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 12 (Q2)", "href": "/files/mamans/maman-12.pdf" },
+        {
+          "type": "lecture",
+          "label": "Lecture 2 (Linoy)",
+          "href": "/files/lectures/lecture-2-linoy.pdf"
+        },
+        { "type": "exam", "label": "2025A Exam 1 Q2", "href": "/files/tests/2025a-exam1.pdf" }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001407-PHOTO-2026-01-31-20-33-38.jpg",
+          "label": "Splay tree from lecture 2"
+        }
+      ],
+      "chat": [
+        {
+          "s": "Beny",
+          "t": "מישהו זוכר אם בהרצה 2 הוא הוכיח שהעומק קטן בחצי בsplay מול rotation רגיל"
+        },
+        { "s": "Lidor Bashi", "t": "זה מה שצריך להוכיח בשאלה 2ב' של ממ\"ן 12" }
+      ]
+    },
+    {
+      "id": "ds-7",
+      "subject": "data-structures",
+      "prompt_md": "Define potential function for a NEW data structure and perform amortized analysis",
+      "score": 8,
+      "points": 29,
+      "sources": [
+        { "kind": "maman", "ref": "maman-11-q1", "weight": 2.5 },
+        { "kind": "past-exam", "ref": "past-exams-amortized", "weight": 2.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-new-structure-technique", "weight": 1.5 }
+      ],
+      "rationale_md": "⬆️ UPGRADED 7→8. Dynamic lists were COMPLETELY absent from 2025A. Given no recent testing, this topic is fresh and likely for 2026. דימה: \"He teaches a technique, shows examples, and can bring a new example.\"",
+      "trend": {
+        "direction": "up",
+        "delta": 1,
+        "reason": "Topic entirely absent from 2025A — now 'due' for 2026"
+      },
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 11",
+          "loc": "Q1 — Amortized analysis of custom structure",
+          "href": "/files/mamans/maman-11.pdf"
+        },
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.2 §2.1 — Amortized analysis technique",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 11 (Q1)", "href": "/files/mamans/maman-11.pdf" }
+      ],
+      "images": [],
+      "chat": [
+        {
+          "s": "דימה",
+          "d": true,
+          "t": "הוא כביכול מלמד טכניקה מראה כמה דוגמאות ויכול להביא דוגמה חדשה במבחן שתפעיל עליה את הטכניקה שכביכול לימד"
+        },
+        { "s": "דימה", "d": true, "t": "תמיד במבחנים יש שאלה אחת או יותר חדשה דנדשה לגמריי" }
+      ]
+    },
+    {
+      "id": "ds-8",
+      "subject": "data-structures",
+      "prompt_md": "Worst-case sequences for Splay/FC/TR: compute exact running times",
+      "score": 6,
+      "points": 13,
+      "sources": [
+        { "kind": "sample-exam", "ref": "sample-exam-sequences", "weight": 2.0 },
+        { "kind": "maman", "ref": "maman-12", "weight": 2.5 },
+        { "kind": "textbook", "ref": "ds-textbook-ch1-ch3", "weight": 0.5 }
+      ],
+      "rationale_md": "Technical questions about running times with specific insert/search sequences. Appeared in the \"questions for practice\" section.",
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 12",
+          "loc": "Related — running time sequences",
+          "href": "/files/mamans/maman-12.pdf"
+        },
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.1 & Ch.3 — Splay/FC/TR algorithms",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        },
+        {
+          "type": "booklet",
+          "file": "Booklet",
+          "loc": "Practice questions section",
+          "href": "/files/textbooks/booklet.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 12", "href": "/files/mamans/maman-12.pdf" },
+        {
+          "type": "book",
+          "label": "Data Structures Textbook",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001782-PHOTO-2026-02-11-20-42-43.jpg",
+          "label": "Splay tree sequence analysis question"
+        }
+      ],
+      "chat": [
+        { "s": "Efrat", "t": "שאלתי את אסף... העץ בכל שלב בסדרת ההכנסות הוא שרוך שפונה שמאלה." },
+        { "s": "אוהד לב", "t": "N^2, N, N, N^3, N^2LOGN, N^3" }
+      ]
+    },
+    {
+      "id": "lp-1",
+      "subject": "linear-programming",
+      "prompt_md": "Write LP formulation (primal) for a graph problem and derive its dual",
+      "score": 10,
+      "points": 29,
+      "sources": [
+        { "kind": "maman", "ref": "maman-14-q1", "weight": 2.5 },
+        { "kind": "maman", "ref": "maman-15-q1", "weight": 2.5 },
+        { "kind": "lecture", "ref": "lecture-4", "weight": 3.0 },
+        { "kind": "sample-exam", "ref": "sample-exam-lp", "weight": 2.0 },
+        { "kind": "recent-exam", "ref": "2025a-exam1-q4", "weight": 3.0 },
+        { "kind": "recent-exam", "ref": "2025a-exam2-q3", "weight": 3.0 }
+      ],
+      "rationale_md": "The most classic LP exam question. Asaf did examples in lecture 4 (set cover, matching). The dual formulation is in the sample exam with full solution. Maman 14 Q1 and Maman 15 Q1 are exactly this pattern. Both 2025A variants confirmed it.",
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 14",
+          "loc": "Q1 — LP formulation for graph problem",
+          "href": "/files/mamans/maman-14.pdf"
+        },
+        {
+          "type": "maman",
+          "file": "Maman 15",
+          "loc": "Q1 — LP with separation oracle",
+          "href": "/files/mamans/maman-15.pdf"
+        },
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.3 — Duality & formulation examples",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 4 (Word)",
+          "loc": "Set cover & matching LP examples",
+          "href": "/files/lectures/lecture-4-word.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 2",
+          "loc": "Q3 (p.3) — Vertex coloring LP, 29pts",
+          "href": "/files/tests/2025a-exam2.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 1",
+          "loc": "Q4 (p.11) — Max-weight edge LP, 29pts",
+          "href": "/files/tests/2025a-exam1.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 14 (Q1)", "href": "/files/mamans/maman-14.pdf" },
+        { "type": "maman", "label": "Maman 15 (Q1)", "href": "/files/mamans/maman-15.pdf" },
+        {
+          "type": "lecture",
+          "label": "Lecture 4 (Word)",
+          "href": "/files/lectures/lecture-4-word.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Linear Programming Textbook",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001786-PHOTO-2026-02-11-21-13-58.jpg",
+          "label": "Dual meaning list for LP problems (Omer)"
+        }
+      ],
+      "chat": [
+        {
+          "s": "Asaf (student)",
+          "t": "למישהו יש סט של שאלות של הגדרת תכנית לינארית? יש לי של חתך ושל חתך עם שלש קבוצות ואני מחפש עוד באותו סגנון."
+        }
+      ]
     },
     {
       "id": "lp-2",
       "subject": "linear-programming",
-      "prompt_md": "Given a primal LP, write its dual and state the weak duality theorem. Use complementary slackness to verify optimality of a given pair.",
-      "score": 7.0,
+      "prompt_md": "Prove Weak Duality Theorem",
+      "score": 7,
       "points": 13,
       "sources": [
         { "kind": "lecture", "ref": "lecture-3", "weight": 3.0 },
-        { "kind": "maman", "ref": "maman-14", "weight": 2.5 },
-        { "kind": "past-exam", "ref": "2018-B moed B", "weight": 2.0 }
+        { "kind": "recent-exam", "ref": "2025a-exam1-q3-duality", "weight": 3.0 }
       ],
-      "rationale_md": "Duality mechanics show up in almost every exam variation, typically as a shorter 13-point question."
+      "rationale_md": "⬇️ DOWNGRADED 8→7. 2025A Exam 1 already had an LP Duality question (Q3, 13pts). Asaf may vary the angle — could still appear but with different framing. Proof: multiply constraints by dual variables and sum.",
+      "trend": { "direction": "down", "delta": 1, "reason": "2025A Exam 1 Q3 tested LP duality" },
+      "refs": [
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.3 §3.1 — Weak Duality Theorem",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 3 (Linoy)",
+          "loc": "Weak duality proof",
+          "href": "/files/lectures/lecture-3-linoy.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 1",
+          "loc": "Q3 (p.10) — LP Duality, 13pts",
+          "href": "/files/tests/2025a-exam1.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 3 (Linoy)",
+          "href": "/files/lectures/lecture-3-linoy.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Linear Programming Textbook",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "images": [],
+      "chat": [
+        {
+          "s": "Efrat",
+          "t": "דואליות חזקה לא צריך לדעתכם? הוא שם את זה במבחן לדוגמה אבל לא הוכיח השנה"
+        },
+        { "s": "דימה", "d": true, "t": "לא הוכיח אז לדעתי לא יהיה" },
+        { "s": "Ethan", "t": "חלשה הוכיח, חזקה רשום לי שלא" }
+      ]
+    },
+    {
+      "id": "lp-3",
+      "subject": "linear-programming",
+      "prompt_md": "Prove Complementary Slackness conditions",
+      "score": 7,
+      "points": 13,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-3", "weight": 3.0 },
+        { "kind": "past-exam", "ref": "past-exams-cs", "weight": 2.0 }
+      ],
+      "rationale_md": "⬇️ DOWNGRADED 8→7. Same reasoning as Weak Duality — duality proofs were tested in 2025A. Still possible with different framing. Asaf proved this in lecture 3 (עודפות משלימה).",
+      "trend": {
+        "direction": "down",
+        "delta": 1,
+        "reason": "Duality topic tested in 2025A reduces repeat probability"
+      },
+      "refs": [
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.3 §3.2 — Complementary Slackness",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 3 (Linoy)",
+          "loc": "CS proof (עודפות משלימה)",
+          "href": "/files/lectures/lecture-3-linoy.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 3 (Linoy)",
+          "href": "/files/lectures/lecture-3-linoy.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Linear Programming Textbook",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "lp-4",
+      "subject": "linear-programming",
+      "prompt_md": "Use LP duality to prove optimality / design approximation algorithm (e.g., Dual-fitting for Set Cover)",
+      "score": 9,
+      "points": 29,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-4", "weight": 3.0 },
+        { "kind": "past-exam", "ref": "past-exams-approx", "weight": 2.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-lecture-examples", "weight": 1.5 }
+      ],
+      "rationale_md": "Asaf solved a dual-based approximation example in lecture 4. דימה: \"the examples from today's lecture aren't random — last semester he solved something that appeared on the exam.\" NOT tested in 2025A (which focused on formulation) — still very likely.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.4 — Approximation via duality",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 4 (Word)",
+          "loc": "Dual-fitting set cover example",
+          "href": "/files/lectures/lecture-4-word.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 4 (Word)",
+          "href": "/files/lectures/lecture-4-word.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Linear Programming Textbook",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "images": [],
+      "chat": [
+        {
+          "s": "דימה",
+          "d": true,
+          "t": "הוא כביכול מלמד טכניקה מראה כמה דוגמאות ויכול להביא דוגמה חדשה במבחן"
+        }
+      ]
+    },
+    {
+      "id": "lp-5",
+      "subject": "linear-programming",
+      "prompt_md": "Vertex definitions and equivalences: prove intersection/extreme-point/BFS equivalence",
+      "score": 8,
+      "points": 13,
+      "sources": [
+        { "kind": "maman", "ref": "maman-13", "weight": 2.5 },
+        { "kind": "recent-exam", "ref": "2025a-exam2-q2-polytope", "weight": 3.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-vertex-suspicious", "weight": 1.5 }
+      ],
+      "rationale_md": "⬆️ UPGRADED 7→8. 2025A Exam 2 literally had LP polytope geometry as Q2 (13pts)! דימה was right to be suspicious! This confirms the topic is in active rotation.",
+      "trend": {
+        "direction": "up",
+        "delta": 1,
+        "reason": "2025A Exam 2 Q2 confirmed this topic — דימה was right"
+      },
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 13",
+          "loc": "Q1 or Q2 — Vertex equivalences",
+          "href": "/files/mamans/maman-13.pdf"
+        },
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.2 §2.3 — Vertex definitions (intersection/extreme/BFS)",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 2",
+          "loc": "Q2 (p.3) — Polytope geometry, 13pts",
+          "href": "/files/tests/2025a-exam2.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 13", "href": "/files/mamans/maman-13.pdf" },
+        {
+          "type": "book",
+          "label": "Linear Programming Textbook",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        { "type": "exam", "label": "2025A Exam 2 Q2", "href": "/files/tests/2025a-exam2.pdf" }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001453-PHOTO-2026-02-06-12-18-42.jpg",
+          "label": "Vertex definition from maman"
+        },
+        {
+          "src": "/files/whatsapp/00001915-PHOTO-2026-02-12-15-41-29.jpg",
+          "label": "Vertex equivalence past exam question"
+        }
+      ],
+      "chat": [
+        {
+          "s": "דימה",
+          "d": true,
+          "t": "בהשוואה לשנים הקודמות הוא עשה את ההגדרות קודקוד בהרצאה הסמסטר משהו שלא עשה ב 3 שנים אחרונות.. אולי זה מרמז שיהיה במבחן"
+        },
+        { "s": "Itamar", "t": "או להוכיח את השקילויות כי זה דומה לממן והוא הראה את ההגדרות" },
+        {
+          "s": "דימה",
+          "d": true,
+          "t": "3 שנים לא עשית את בהרצאה עכשיו נזכרת לבזבז על זה זמן ולעשות את זה 🤔"
+        }
+      ]
+    },
+    {
+      "id": "lp-6",
+      "subject": "linear-programming",
+      "prompt_md": "Prove feasibility ↔ optimization reduction (Section 5.1 of LP textbook)",
+      "score": 7,
+      "points": 13,
+      "sources": [
+        { "kind": "sample-exam", "ref": "sample-exam-feasibility", "weight": 2.0 },
+        { "kind": "textbook", "ref": "lp-textbook-s5.1", "weight": 0.5 },
+        { "kind": "whatsapp-hint", "ref": "dima-section-5.1", "weight": 1.5 }
+      ],
+      "rationale_md": "Asaf explicitly listed this as material in the \"exam preparation\" section on the course website. Appeared in past exams. דימה confirmed \"completely in the material.\" Uses duality theorem.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "§5.1 — Feasibility ↔ Optimization reduction",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        {
+          "type": "booklet",
+          "file": "Booklet",
+          "loc": "Exam prep section — mentioned explicitly",
+          "href": "/files/textbooks/booklet.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "book",
+          "label": "Linear Programming Textbook (§5.1)",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001760-PHOTO-2026-02-10-20-17-42.jpg",
+          "label": "Past exam feasibility question"
+        }
+      ],
+      "chat": [
+        {
+          "s": "Omer",
+          "t": "להוכיח שאם קיים אלגוריתם יעיל לבעיית הפיזיביליות אז קיים אלגוריתם יעיל לבעיית התכנון הלינארי"
+        },
+        {
+          "s": "דימה",
+          "d": true,
+          "t": "אין לזה שום קשר לאלפסיאודיום... זה הוכחה סטנדרטית בתכנון לינארי"
+        },
+        {
+          "s": "Lidor Bashi",
+          "t": "תסתכל בסקשיין של ה\"הכנה למבחן\" באתר של הקורס. הוא מזכיר את זה במפורש"
+        },
+        {
+          "s": "דימה",
+          "d": true,
+          "t": "וכן צריך להכיר את הרדוקציה מבעיית הפיזביליות לבעיית האופטימליות. (סעיף 5.1 בספר התכנון הלינארי שמופיע באתר הקורס)."
+        }
+      ]
+    },
+    {
+      "id": "lp-7",
+      "subject": "linear-programming",
+      "prompt_md": "Simplex-based proof (understand algorithm, use in proof — NOT manual execution)",
+      "score": 7,
+      "points": 13,
+      "sources": [
+        { "kind": "past-exam", "ref": "past-exams-simplex", "weight": 2.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-simplex-understanding", "weight": 1.5 }
+      ],
+      "rationale_md": "דימה: \"You won't be asked to run simplex technically, but you need to understand what the algorithm does and use it in proofs.\" Past exam had exactly this.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.2 §2.4-2.5 — Simplex algorithm",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "book",
+          "label": "Linear Programming Textbook",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001765-PHOTO-2026-02-10-22-26-02.jpg",
+          "label": "Simplex execution question (NOT needed)"
+        }
+      ],
+      "chat": [
+        {
+          "s": "דימה",
+          "d": true,
+          "t": "לא צריך לדעת להריץ סימפלקס. כן להבין מה עושים באלגוריתמים ואיך הוא מוצא פתרונות"
+        }
+      ]
+    },
+    {
+      "id": "lp-8",
+      "subject": "linear-programming",
+      "prompt_md": "LP formulation for Maximum Matching in bipartite graph + duality proof",
+      "score": 8,
+      "points": 29,
+      "sources": [
+        { "kind": "maman", "ref": "maman-15-q1-variant", "weight": 2.5 },
+        { "kind": "sample-exam", "ref": "sample-exam-matching", "weight": 2.0 },
+        { "kind": "past-exam", "ref": "past-exams-matching-2025", "weight": 2.0 }
+      ],
+      "rationale_md": "Almost the exact same question as sample exam. Maman 15 Q1 is a close variant with separation oracle and ellipsoid algorithm. Past exam 2025 had matching LP.",
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 15",
+          "loc": "Q1 — LP matching + ellipsoid variant",
+          "href": "/files/mamans/maman-15.pdf"
+        },
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.3 — Matching LP + integrality",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "Past Exams",
+          "loc": "Matching LP appeared in 2025 exam",
+          "href": "/files/tests/past-exams-compilation.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 15 (Q1)", "href": "/files/mamans/maman-15.pdf" },
+        {
+          "type": "book",
+          "label": "Linear Programming Textbook",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        {
+          "type": "exam",
+          "label": "Past Exam Compilation",
+          "href": "/files/tests/past-exams-compilation.pdf"
+        }
+      ],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "eg-1",
+      "subject": "expander-graphs",
+      "prompt_md": "Prove: good vertex expansion ⟹ logarithmic diameter (ball-growing argument)",
+      "score": 10,
+      "points": 29,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-6", "weight": 3.0 },
+        { "kind": "recent-exam", "ref": "2025a-exam2-q4-29pts", "weight": 3.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-diameter-theorem", "weight": 1.5 }
+      ],
+      "rationale_md": "Asaf proved this in lecture 6 with the \"balls\" technique (B_l < |V|/2 → |N(B_l)| ≥ α|B_l| → B grows exponentially). This exact proof appeared in the 2025 exam. The core proof of expander graphs.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "Expander Graphs",
+          "loc": "Ch.2 §2.1 — Vertex expansion → diameter",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 6 (Linoy)",
+          "loc": "Ball-growing proof (B_l technique)",
+          "href": "/files/lectures/lecture-6-linoy.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 6 (Word)",
+          "loc": "Full diameter theorem proof",
+          "href": "/files/lectures/lecture-6-word.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 2",
+          "loc": "Q4 (p.5) — Vertex expansion, 29pts",
+          "href": "/files/tests/2025a-exam2.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 6 (Linoy)",
+          "href": "/files/lectures/lecture-6-linoy.pdf"
+        },
+        {
+          "type": "lecture",
+          "label": "Lecture 6 (Word)",
+          "href": "/files/lectures/lecture-6-word.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Expander Graphs Textbook",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        },
+        { "type": "exam", "label": "2025A Exam 2 Q4", "href": "/files/tests/2025a-exam2.pdf" }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001546-PHOTO-2026-02-07-13-20-34.jpg",
+          "label": "Diameter theorem statement"
+        },
+        {
+          "src": "/files/whatsapp/00001549-PHOTO-2026-02-07-13-26-54.jpg",
+          "label": "Ball-growing proof (1/3)"
+        },
+        {
+          "src": "/files/whatsapp/00001556-PHOTO-2026-02-07-14-20-10.jpg",
+          "label": "Ball-growing proof (2/3)"
+        },
+        {
+          "src": "/files/whatsapp/00001557-PHOTO-2026-02-07-14-20-11.jpg",
+          "label": "Ball-growing proof (3/3)"
+        }
+      ],
+      "chat": [
+        {
+          "s": "Efrat",
+          "t": "יש למישהו את השאלה משנה שעברה שאמרו שזו ההוכחה עם הקוטר והכדורים שהוא עשה בהרצאה 6?"
+        },
+        { "s": "דימה", "d": true, "t": "זה המשפט" },
+        {
+          "s": "Liran shem Tov",
+          "t": "הטעות הקטנה היא - שצריך כדורים גדולים ממש מחצי כמות הקודקודים ולא גדול שווה"
+        },
+        { "s": "Itamar", "t": "האמת שזה טעות מהותית חחח כי שווה לא מבטיח שיש קודקודים בחיתוך" }
+      ]
+    },
+    {
+      "id": "eg-2",
+      "subject": "expander-graphs",
+      "prompt_md": "Find eigenvalues of a d-regular (multi)graph using trace trick",
+      "score": 9,
+      "points": 29,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-7", "weight": 3.0 },
+        { "kind": "maman", "ref": "maman-15-q4", "weight": 2.5 },
+        { "kind": "past-exam", "ref": "past-exams-eigenvalues", "weight": 2.0 }
+      ],
+      "rationale_md": "Asaf taught the trick: Trace(A) = sum of eigenvalues, d-regularity gives largest eigenvalue = d, linear dependence gives eigenvalue 0, then compute the last. The \"trick with A + 2I\" was highlighted. NOT tested in 2025A — still fresh.",
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 15",
+          "loc": "Q4 — Eigenvalue computation",
+          "href": "/files/mamans/maman-15.pdf"
+        },
+        {
+          "type": "book",
+          "file": "Expander Graphs",
+          "loc": "Ch.3 — Spectral theory, eigenvalues",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 7 (Word)",
+          "loc": "Trace trick + A+2I technique",
+          "href": "/files/lectures/lecture-7-word.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 7 (Linoy)",
+          "href": "/files/lectures/lecture-7-linoy.pdf"
+        },
+        {
+          "type": "lecture",
+          "label": "Lecture 7 (Word)",
+          "href": "/files/lectures/lecture-7-word.pdf"
+        },
+        { "type": "maman", "label": "Maman 15 (Q4)", "href": "/files/mamans/maman-15.pdf" },
+        {
+          "type": "book",
+          "label": "Expander Graphs Textbook",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        }
+      ],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "eg-3",
+      "subject": "expander-graphs",
+      "prompt_md": "Edge expansion bounds in d-regular graph: prove d·|S| = 2|E(S)| + |∂(S)|",
+      "score": 8,
+      "points": 29,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-5", "weight": 3.0 },
+        { "kind": "maman", "ref": "maman-15-q3", "weight": 2.5 },
+        { "kind": "recent-exam", "ref": "2025a-exam1-q5-29pts", "weight": 3.0 },
+        { "kind": "recent-exam", "ref": "2025a-exam2-q5-13pts", "weight": 3.0 }
+      ],
+      "rationale_md": "⬆️ UPGRADED 7→8. Appeared in both 2025A variants — Exam 1 Q5 (29pts on edge expansion h'(G)) and Exam 2 Q5 (13pts on expansion bounds). Clearly a staple topic.",
+      "trend": {
+        "direction": "up",
+        "delta": 1,
+        "reason": "Appeared in both 2025A variants — confirmed staple"
+      },
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 15",
+          "loc": "Q3 — Edge expansion (same as 2024 exam)",
+          "href": "/files/mamans/maman-15.pdf"
+        },
+        {
+          "type": "book",
+          "file": "Expander Graphs",
+          "loc": "Ch.1 §1.2 — Edge expansion h'(G)",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 5 (Word)",
+          "loc": "Edge expansion definitions",
+          "href": "/files/lectures/lecture-5-word.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 1",
+          "loc": "Q5 (p.12) — h'(G), 29pts",
+          "href": "/files/tests/2025a-exam1.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "2025A Exam 2",
+          "loc": "Q5 (p.6) — Expansion bounds, 13pts",
+          "href": "/files/tests/2025a-exam2.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 5 (Linoy)",
+          "href": "/files/lectures/lecture-5-linoy.pdf"
+        },
+        {
+          "type": "lecture",
+          "label": "Lecture 5 (Word)",
+          "href": "/files/lectures/lecture-5-word.pdf"
+        },
+        { "type": "maman", "label": "Maman 15 (Q3)", "href": "/files/mamans/maman-15.pdf" },
+        {
+          "type": "book",
+          "label": "Expander Graphs Textbook",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        },
+        { "type": "exam", "label": "2025A Exam 1 Q5", "href": "/files/tests/2025a-exam1.pdf" },
+        { "type": "exam", "label": "2025A Exam 2 Q5", "href": "/files/tests/2025a-exam2.pdf" }
+      ],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "eg-4",
+      "subject": "expander-graphs",
+      "prompt_md": "Prove: d-regular edge expander ⟹ vertex expander (or vice versa)",
+      "score": 6,
+      "points": 13,
+      "sources": [
+        { "kind": "maman", "ref": "maman-16-q2", "weight": 2.5 },
+        { "kind": "lecture", "ref": "lecture-6", "weight": 3.0 }
+      ],
+      "rationale_md": "Maman 16 asked to prove edge expansion implies mixing property. Related to lecture 6 content on relationships between expansion properties.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "Expander Graphs",
+          "loc": "Ch.1 §1.3 — Edge vs vertex expansion",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 6 (Linoy)",
+          "loc": "Expansion relationships",
+          "href": "/files/lectures/lecture-6-linoy.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 6 (Linoy)",
+          "href": "/files/lectures/lecture-6-linoy.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Expander Graphs Textbook",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        }
+      ],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "eg-5",
+      "subject": "expander-graphs",
+      "prompt_md": "BPP/RP amplification: prove probability amplification by repeated independent runs",
+      "score": 8,
+      "points": 13,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-7", "weight": 3.0 },
+        { "kind": "past-exam", "ref": "past-exams-bpp", "weight": 2.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-gift-question-bpp", "weight": 1.5 }
+      ],
+      "rationale_md": "Asaf proved BPP and RP amplification in lecture 7. דימה said this is a \"gift question\" that always appears. Connected to expander graphs via derandomization. NOT tested in 2025A — still fresh and \"due.\"",
+      "refs": [
+        {
+          "type": "book",
+          "file": "Expander Graphs",
+          "loc": "Ch.4 — BPP/RP amplification",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 7 (Linoy)",
+          "loc": "BPP & RP proofs",
+          "href": "/files/lectures/lecture-7-linoy.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 7 (Word)",
+          "loc": "Amplification + derandomization",
+          "href": "/files/lectures/lecture-7-word.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 7 (Linoy)",
+          "href": "/files/lectures/lecture-7-linoy.pdf"
+        },
+        {
+          "type": "lecture",
+          "label": "Lecture 7 (Word)",
+          "href": "/files/lectures/lecture-7-word.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Expander Graphs Textbook",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001612-PHOTO-2026-02-08-17-32-56.jpg",
+          "label": "BPP error probability discussion"
+        }
+      ],
+      "chat": [
+        { "s": "Beny", "t": "יש פה טעות לא אם x טועה על L אז זה חצי + לאמדה לא ?" },
+        {
+          "s": "Itamar",
+          "t": "דלטא זה בעצם בכמה יש לך יתרון על הטלת מטבע שאתה יכול לבצע מבלי בכלל להכיר את הבעיה. בגלל זה זה במינוס"
+        }
+      ]
+    },
+    {
+      "id": "eg-6",
+      "subject": "expander-graphs",
+      "prompt_md": "Show specific graph is a good expander / Ramanujan construction",
+      "score": 7,
+      "points": 13,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-7", "weight": 3.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-ramanujan-hint", "weight": 1.5 }
+      ],
+      "rationale_md": "Related to lecture 7 spectral content. Shows how to verify a graph is an expander using eigenvalue gap.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "Expander Graphs",
+          "loc": "Ch.3 §3.3 — Ramanujan graphs",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 7 (Word)",
+          "loc": "Spectral gap → expander quality",
+          "href": "/files/lectures/lecture-7-word.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 7 (Linoy)",
+          "href": "/files/lectures/lecture-7-linoy.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Expander Graphs Textbook",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        }
+      ],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "eg-7",
+      "subject": "expander-graphs",
+      "prompt_md": "Maman 16 Q3: Prove edge expansion ⟹ mixing/random-walk properties",
+      "score": 6,
+      "points": 13,
+      "sources": [
+        { "kind": "maman", "ref": "maman-16-q3", "weight": 2.5 },
+        { "kind": "past-exam", "ref": "past-exams-mixing", "weight": 2.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-maman16-appeared", "weight": 1.5 }
+      ],
+      "rationale_md": "דימה confirmed this maman question appeared in a past exam. Even though it seems unlikely, it has precedent.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "Expander Graphs",
+          "loc": "Ch.2 — Mixing property from edge expansion",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "book",
+          "label": "Expander Graphs Textbook",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001624-PHOTO-2026-02-08-18-50-27.jpg",
+          "label": "Maman 16 Q3 in past exam"
+        }
+      ],
+      "chat": [
+        { "s": "Omer", "t": "מישהו מהמר על לא ללמוד את ההוכחות של עבודה 6 שאלה 3 ו-4 למבחן?" },
+        { "s": "דימה", "d": true, "t": "צר לי לאכזב אבל ממן 16 הופיע במבחנים קודמים" },
+        { "s": "דימה", "d": true, "t": "זה למשל ממן 16 שאלה 3" }
+      ]
+    },
+    {
+      "id": "eg-8",
+      "subject": "expander-graphs",
+      "prompt_md": "Maman 16 Q4: Spectral gap ⟹ expansion property proof",
+      "score": 5,
+      "points": 13,
+      "sources": [
+        { "kind": "maman", "ref": "maman-16-q4", "weight": 2.5 },
+        { "kind": "past-exam", "ref": "past-exams-spectral", "weight": 2.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-maman16-q4-appeared", "weight": 1.5 }
+      ],
+      "rationale_md": "דימה confirmed this also appeared in past exams. Reviews spectral connections.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "Expander Graphs",
+          "loc": "Ch.3 — Spectral gap → expansion",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "book",
+          "label": "Expander Graphs Textbook",
+          "href": "/files/textbooks/expander-graphs.pdf"
+        }
+      ],
+      "images": [],
+      "chat": [{ "s": "דימה", "d": true, "t": "גם שאלה 4 הופיעה" }]
+    },
+    {
+      "id": "mix-1",
+      "subject": "mixed",
+      "prompt_md": "Fibonacci Heap: Prove D(n) ≤ log_φ(n) — short proof for 13-point slot",
+      "score": 10,
+      "points": 13,
+      "sources": [
+        { "kind": "maman", "ref": "maman-11-q4", "weight": 2.5 },
+        { "kind": "booklet", "ref": "booklet-pp1-3", "weight": 2.0 },
+        { "kind": "recent-exam", "ref": "2025a-decrease-key-tested", "weight": 3.0 },
+        { "kind": "whatsapp-hint", "ref": "dima-fibonacci-99pct", "weight": 1.5 }
+      ],
+      "rationale_md": "⬆️ UPGRADED 9→10. Since 2025A already tested Decrease-Key, the D(n) bound is THE prime Fibonacci Heap candidate for 2026. דימה: \"99% one of them will appear.\"",
+      "trend": {
+        "direction": "up",
+        "delta": 1,
+        "reason": "2025A tested Decrease-Key — D(n) bound is now the top Fibonacci Heap candidate"
+      },
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 11",
+          "loc": "Q4 — D(n) ≤ log_φ(n) proof",
+          "href": "/files/mamans/maman-11.pdf"
+        },
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.2 §2.2 — Fibonacci degree bound theorem",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        },
+        {
+          "type": "booklet",
+          "file": "Booklet",
+          "loc": "Pages 1-3 — Degree bound",
+          "href": "/files/textbooks/booklet.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 11 (Q4)", "href": "/files/mamans/maman-11.pdf" },
+        {
+          "type": "exam",
+          "label": "Maman 11 Q4 Solution",
+          "href": "/files/whatsapp/00001706-solution-q4.pdf"
+        }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001504-PHOTO-2026-02-07-11-45-55.jpg",
+          "label": "Related probabilistic proof discussion"
+        }
+      ],
+      "chat": [
+        {
+          "s": "Omer",
+          "t": "הוא הוכיח רק את מה שאמרו - בסוף הרצאה 2 - ש-Fn חלקי Fn-1 גדל אקספוננציאלית - באמת כהכנה לשאלה 4"
+        },
+        { "s": "דימה", "d": true, "t": "הוא התחיל לדבר על זה בסוף הרצאה 2... רק לא המשיך" }
+      ]
+    },
+    {
+      "id": "mix-2",
+      "subject": "mixed",
+      "prompt_md": "LP: Given primal+dual, verify optimality using Complementary Slackness",
+      "score": 7,
+      "points": 13,
+      "sources": [
+        { "kind": "maman", "ref": "maman-13-q2", "weight": 2.5 },
+        { "kind": "lecture", "ref": "lecture-3", "weight": 3.0 }
+      ],
+      "rationale_md": "Maman 13 asked to prove circular implications between duality conditions. Standard 13-point exam question in past tests.",
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 13",
+          "loc": "Q2 — CS conditions verification",
+          "href": "/files/mamans/maman-13.pdf"
+        },
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.3 §3.2 — Complementary Slackness",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 13 (Q2)", "href": "/files/mamans/maman-13.pdf" },
+        {
+          "type": "lecture",
+          "label": "Lecture 3 (Linoy)",
+          "href": "/files/lectures/lecture-3-linoy.pdf"
+        }
+      ],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "mix-3",
+      "subject": "mixed",
+      "prompt_md": "Tight vs non-tight constraints: identify and use at optimum",
+      "score": 6,
+      "points": 13,
+      "sources": [{ "kind": "maman", "ref": "maman-14", "weight": 2.5 }],
+      "rationale_md": "Understanding which constraints are tight at the optimum. Appeared in WhatsApp discussions. Asaf showed this in examples.",
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 14",
+          "loc": "Tight constraints section",
+          "href": "/files/mamans/maman-14.pdf"
+        },
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.2 — Constraint analysis at optimum",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "links": [{ "type": "maman", "label": "Maman 14", "href": "/files/mamans/maman-14.pdf" }],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "mix-4",
+      "subject": "mixed",
+      "prompt_md": "Polynomial tree (custom data structure): analyze structure and prove properties",
+      "score": 5,
+      "points": 13,
+      "sources": [{ "kind": "maman", "ref": "maman-11-q2", "weight": 2.5 }],
+      "rationale_md": "Original maman question on a new \"polynomial tree\" data structure. Could appear as a variant.",
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 11",
+          "loc": "Q2 — Polynomial tree structure",
+          "href": "/files/mamans/maman-11.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 11 (Q2)", "href": "/files/mamans/maman-11.pdf" }
+      ],
+      "images": [],
+      "chat": []
+    },
+    {
+      "id": "mix-5",
+      "subject": "mixed",
+      "prompt_md": "Worst-case input for comparison of two online algorithms (FC vs MF vs TR)",
+      "score": 8,
+      "points": 13,
+      "sources": [
+        { "kind": "maman", "ref": "maman-12-q1", "weight": 2.5 },
+        { "kind": "past-exam", "ref": "past-exams-online", "weight": 2.0 }
+      ],
+      "rationale_md": "⬆️ UPGRADED 7→8. Online algorithm comparisons were absent from 2025A. Since dynamic lists weren't tested, this fresh topic is more likely for 2026.",
+      "trend": { "direction": "up", "delta": 1, "reason": "Absent from 2025A — now 'due'" },
+      "refs": [
+        {
+          "type": "maman",
+          "file": "Maman 12",
+          "loc": "Q1 — FC vs MF adversarial input",
+          "href": "/files/mamans/maman-12.pdf"
+        },
+        {
+          "type": "exam",
+          "file": "Past Exams",
+          "loc": "Algorithm comparison questions",
+          "href": "/files/tests/past-exams-compilation.pdf"
+        },
+        {
+          "type": "book",
+          "file": "DS Textbook",
+          "loc": "Ch.3 — Online algorithms",
+          "href": "/files/textbooks/ds-textbook.pdf"
+        }
+      ],
+      "links": [
+        { "type": "maman", "label": "Maman 12 (Q1)", "href": "/files/mamans/maman-12.pdf" },
+        {
+          "type": "exam",
+          "label": "Past Exams Compilation",
+          "href": "/files/tests/past-exams-compilation.pdf"
+        }
+      ],
+      "images": [
+        {
+          "src": "/files/whatsapp/00001723-PHOTO-2026-02-10-19-19-56.jpg",
+          "label": "Amortized cost comparison question"
+        }
+      ],
+      "chat": []
+    },
+    {
+      "id": "mix-6",
+      "subject": "mixed",
+      "prompt_md": "Approximation algorithm using LP relaxation for a new problem",
+      "score": 6,
+      "points": 13,
+      "sources": [
+        { "kind": "lecture", "ref": "lecture-4", "weight": 3.0 },
+        { "kind": "textbook", "ref": "lp-textbook-ch4", "weight": 0.5 }
+      ],
+      "rationale_md": "Asaf taught the technique — could bring a new problem to apply it to.",
+      "refs": [
+        {
+          "type": "book",
+          "file": "LP Textbook",
+          "loc": "Ch.4 — LP relaxation + rounding",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        },
+        {
+          "type": "lecture",
+          "file": "Lecture 4 (Word)",
+          "loc": "Approximation examples",
+          "href": "/files/lectures/lecture-4-word.pdf"
+        }
+      ],
+      "links": [
+        {
+          "type": "lecture",
+          "label": "Lecture 4 (Word)",
+          "href": "/files/lectures/lecture-4-word.pdf"
+        },
+        {
+          "type": "book",
+          "label": "Linear Programming Textbook",
+          "href": "/files/textbooks/lp-textbook.pdf"
+        }
+      ],
+      "images": [],
+      "chat": []
     }
   ]
 }

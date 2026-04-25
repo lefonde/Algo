@@ -1,0 +1,71 @@
+{
+  "course": "advanced-algorithms",
+  "source": "WhatsApp course chat analysis — דימה (repeat student) + class discussion",
+  "items": [
+    {
+      "id": "insight-1",
+      "text": "Proofs only from lectures — Asaf only asks to reproduce proofs he actually demonstrated in class. If he didn't prove it, it won't be an exam proof question.",
+      "bold": "Proofs only from lectures"
+    },
+    {
+      "id": "insight-2",
+      "text": "Not taught ≠ not on exam — However, technical questions (not proofs) can come from any part of the textbook material.",
+      "bold": "Not taught ≠ not on exam"
+    },
+    {
+      "id": "insight-3",
+      "text": "Strong Duality was NOT proved this semester → will NOT appear as a proof question.",
+      "negative": true
+    },
+    {
+      "id": "insight-4",
+      "text": "Shadow prices (מחיר מתואם) were NOT taught → will NOT appear.",
+      "negative": true
+    },
+    {
+      "id": "insight-5",
+      "text": "Farkas Lemma was NOT taught → will NOT appear.",
+      "negative": true
+    },
+    {
+      "id": "insight-6",
+      "text": "Mixing Lemma & Expansion Lemma were NOT proved → will NOT appear as proof questions.",
+      "negative": true
+    },
+    {
+      "id": "insight-7",
+      "text": "Fibonacci logarithmic bound — \"every semester he proves it and every other exam it appears\" — study even though he only partially covered it this semester.",
+      "bold": "Fibonacci logarithmic bound"
+    },
+    {
+      "id": "insight-8",
+      "text": "Asaf recycles questions — even year to year, same exact questions can appear.",
+      "bold": "Asaf recycles questions"
+    },
+    {
+      "id": "insight-9",
+      "text": "Moed B is harder — Asaf explicitly said this in the last lecture.",
+      "bold": "Moed B is harder"
+    },
+    {
+      "id": "insight-10",
+      "text": "Formula sheet provided — standard formulas are given, but you need to know what to do with them.",
+      "bold": "Formula sheet provided"
+    },
+    {
+      "id": "insight-11",
+      "text": "Vertex definitions — 2025A CONFIRMED דימה's suspicion: polytope geometry appeared as Q2 in Exam 2! When דימה flags something as 'suspicious,' TRUST HIM.",
+      "bold": "Vertex definitions — דימה was right"
+    },
+    {
+      "id": "insight-12",
+      "text": "One 'hard' question — there's usually one 29-point question that's very challenging and differentiates students.",
+      "bold": "One hard question"
+    },
+    {
+      "id": "insight-13",
+      "text": "2025A Trend: topics ABSENT from 2025A (Dynamic Lists, BPP, Eigenvalues, LP Approximation) are now 'due' for 2026. Topics TESTED in 2025A (Decrease-Key, LP Duality defs) are less likely to repeat verbatim.",
+      "bold": "2025A Trend Analysis"
+    }
+  ]
+}

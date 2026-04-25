@@ -1,10 +1,12 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { CourseSchema, type Course } from './schemas/course'
+import { InsightsSchema, type Insights } from './schemas/insights'
 import { PredictionsSchema, type Predictions } from './schemas/predictions'
 import { LectureIndexSchema, type LectureIndex } from './schemas/lectures'
 import { MamanIndexSchema, type MamanIndex } from './schemas/mamans'
 import { TestIndexSchema, type TestIndex } from './schemas/tests'
+import { TrendsSchema, type Trends } from './schemas/trends'
 
 function contentRoot(): string {
   return join(process.cwd(), '..', '..', 'content', 'courses')
@@ -52,4 +54,16 @@ export function getTests(slug: string): TestIndex {
   const path = join(contentRoot(), slug, 'tests', 'index.json')
   if (!existsSync(path)) return []
   return TestIndexSchema.parse(readJson(path))
+}
+
+export function getInsights(slug: string): Insights | null {
+  const path = join(contentRoot(), slug, 'insights.json')
+  if (!existsSync(path)) return null
+  return InsightsSchema.parse(readJson(path))
+}
+
+export function getTrends(slug: string): Trends | null {
+  const path = join(contentRoot(), slug, 'trends.json')
+  if (!existsSync(path)) return null
+  return TrendsSchema.parse(readJson(path))
 }

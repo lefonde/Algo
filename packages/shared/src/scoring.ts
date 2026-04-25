@@ -8,6 +8,7 @@ export const SOURCE_WEIGHTS: Record<SourceKind, number> = {
   'whatsapp-hint': 1.5,
   'sample-exam': 2.0,
   textbook: 0.5,
+  booklet: 2.0,
 }
 
 export type ScoreBand = 'critical' | 'high' | 'medium' | 'low'
