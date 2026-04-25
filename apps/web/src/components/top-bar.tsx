@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { BookOpen, Plus, RotateCcw, TrendingUp } from 'lucide-react'
+import { BookOpen, Plus, RotateCcw, TrendingUp, HelpCircle } from 'lucide-react'
 
 type Props = {
   courseName?: string
@@ -34,7 +34,9 @@ export function TopBar({ courseName, courseSlug, showRevise, showTrends }: Props
             <Link
               href={`/${courseSlug}`}
               className={`text-sm truncate max-w-[160px] md:max-w-xs transition-colors ${
-                isHome ? 'text-[var(--color-zinc-400)]' : 'text-[var(--color-zinc-300)] hover:text-white'
+                isHome
+                  ? 'text-[var(--color-zinc-400)]'
+                  : 'text-[var(--color-zinc-300)] hover:text-white'
               }`}
               dir="auto"
             >
@@ -47,6 +49,14 @@ export function TopBar({ courseName, courseSlug, showRevise, showTrends }: Props
 
         {/* Actions */}
         <nav className="flex items-center gap-2">
+          <Link
+            href="/how-it-works"
+            className="p-1.5 rounded-md text-[var(--color-zinc-600)] hover:text-[var(--color-zinc-300)] transition-colors"
+            aria-label="How it works"
+            title="How it works"
+          >
+            <HelpCircle size={15} />
+          </Link>
           {showTrends && courseSlug && (
             <Link
               href={`/${courseSlug}/trends`}

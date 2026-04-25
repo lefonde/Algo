@@ -33,15 +33,18 @@ export default async function PredictionsPage({ params }: Params) {
 
   return (
     <>
-      <TopBar
-        courseName={displayName}
-        courseSlug={slug}
-        showRevise
-        showTrends={!!trends}
-      />
+      <TopBar courseName={displayName} courseSlug={slug} showRevise showTrends={!!trends} />
       <main className="max-w-4xl mx-auto px-4 md:px-8 py-10 md:py-14">
         <header className="mb-8">
-          <h1 className="font-display text-3xl text-white">Exam predictions</h1>
+          <div className="flex items-baseline justify-between gap-4">
+            <h1 className="font-display text-3xl text-white">Exam predictions</h1>
+            <a
+              href="/how-it-works#scoring"
+              className="text-xs text-[var(--color-zinc-600)] hover:text-[var(--color-zinc-400)] transition-colors shrink-0"
+            >
+              ⓘ How scores work
+            </a>
+          </div>
           <p className="mt-1.5 text-[var(--color-zinc-500)] text-sm">
             Scoring v{predictions?.scoring_version ?? '—'} · updated{' '}
             {predictions?.generated_at
