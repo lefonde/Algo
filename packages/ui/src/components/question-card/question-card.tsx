@@ -1,6 +1,22 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import {
+  ChevronRight,
+  Copy,
+  Check,
+  ExternalLink,
+  BookOpen,
+  FileText,
+  MessageCircle,
+  GraduationCap,
+  NotebookPen,
+  Image as ImageIcon,
+  MapPin,
+  TrendingUp,
+  TrendingDown,
+  CheckCircle2,
+} from 'lucide-react'
 import type { Question, RefPin, ChatMessage, Image as QImage } from '@repo/content'
 
 const SUBJECT_LABELS: Record<string, string> = {
@@ -10,19 +26,34 @@ const SUBJECT_LABELS: Record<string, string> = {
   mixed: 'Mixed / Cross-Topic',
 }
 
-const SOURCE_KIND_ICONS: Record<string, string> = {
-  lecture: '🎓',
-  maman: '📝',
-  book: '📖',
-  exam: '📋',
-  booklet: '📓',
-  whatsapp: '💬',
+const SUBJECT_SHORT: Record<string, string> = {
+  'data-structures': 'DS',
+  'linear-programming': 'LP',
+  'expander-graphs': 'EG',
+  mixed: 'Mix',
 }
 
-function priorityLabel(score: number) {
-  if (score >= 8) return { label: 'Critical', color: 'text-red-400 bg-red-900/40' }
-  if (score >= 7) return { label: 'High', color: 'text-orange-400 bg-orange-900/40' }
-  return { label: 'Medium', color: 'text-yellow-400 bg-yellow-900/40' }
+function priorityConfig(score: number) {
+  if (score >= 8)
+    return {
+      label: 'Critical',
+      stripe: 'bg-red-500',
+      badge: 'text-red-400 bg-red-950/60 border border-red-900/60',
+      glow: 'shadow-[0_0_0_1px_rgba(239,68,68,0.2)]',
+    }
+  if (score >= 7)
+    return {
+      label: 'High',
+      stripe: 'bg-orange-500',
+      badge: 'text-orange-400 bg-orange-950/60 border border-orange-900/60',
+      glow: 'shadow-[0_0_0_1px_rgba(249,115,22,0.15)]',
+    }
+  return {
+    label: 'Medium',
+    stripe: 'bg-yellow-500',
+    badge: 'text-yellow-400 bg-yellow-950/60 border border-yellow-900/60',
+    glow: '',
+  }
 }
 
 type CopyState = 'idle' | 'copied'
@@ -43,6 +74,26 @@ function useCopy(): [CopyState, (text: string) => void] {
     setTimeout(() => setState('idle'), 2000)
   }, [])
   return [state, copy]
+}
+
+function sourceIcon(kind: string) {
+  switch (kind) {
+    case 'lecture':
+      return <GraduationCap size={12} />
+    case 'maman':
+    case 'booklet':
+      return <NotebookPen size={12} />
+    case 'exam':
+    case 'past-exam':
+    case 'recent-exam':
+    case 'sample-exam':
+      return <FileText size={12} />
+    case 'whatsapp':
+    case 'whatsapp-hint':
+      return <MessageCircle size={12} />
+    default:
+      return <BookOpen size={12} />
+  }
 }
 
 function buildPracticePrompt(q: Question): string {
@@ -156,78 +207,148 @@ export function QuestionCard({
     onStudiedChange?.(q.id, next)
   }
 
-  const priority = priorityLabel(q.score)
+  const priority = priorityConfig(q.score)
 
   return (
     <>
       <article
+        id={q.id}
         data-testid="question-card"
-        className={`border border-[#2a2a35] rounded-xl overflow-hidden transition-colors ${studied ? 'opacity-60' : ''}`}
+        className={`relative rounded-xl border border-[var(--color-surface-border)] bg-[var(--color-surface-card)] overflow-hidden transition-all duration-200 ${priority.glow} ${studied ? 'opacity-50' : ''}`}
       >
-        {/* Header row */}
+        {/* Left accent stripe */}
+        <div className={`absolute left-0 top-0 bottom-0 w-[3px] ${priority.stripe}`} aria-hidden />
+
+        {/* Header — click to expand */}
         <button
           type="button"
           aria-expanded={expanded}
           onClick={() => setExpanded((v) => !v)}
-          className="flex w-full items-start gap-3 px-4 py-4 text-start hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 transition-colors"
+          className="w-full text-start pl-4 pr-3 py-3.5 hover:bg-white/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-500 transition-colors"
         >
-          {/* Score badge */}
-          <span className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-[#1e1e2e] border border-[#3a3a4a] flex items-center justify-center text-sm font-bold text-white">
-            {q.score}
-          </span>
-
-          {/* Priority + subject */}
-          <div className="shrink-0 mt-0.5 flex flex-col gap-1">
-            <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded ${priority.color}`}>
+          {/* Row 1 (mobile): meta pills */}
+          <div className="flex items-center gap-2 mb-2 sm:hidden">
+            <span
+              className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${priority.badge}`}
+            >
               {priority.label}
             </span>
-            <span className="text-[10px] text-neutral-500 uppercase tracking-wide">
-              {SUBJECT_LABELS[q.subject]}
+            <span className="text-[10px] text-[var(--color-zinc-500)] font-mono uppercase">
+              {SUBJECT_SHORT[q.subject]}
+            </span>
+            {q.trend && (
+              <span
+                className={`flex items-center gap-0.5 text-[10px] font-bold ${q.trend.direction === 'up' ? 'text-emerald-400' : 'text-red-400'}`}
+              >
+                {q.trend.direction === 'up' ? (
+                  <TrendingUp size={10} />
+                ) : (
+                  <TrendingDown size={10} />
+                )}
+                {q.trend.delta}
+              </span>
+            )}
+            <span className="flex-1" />
+            <span className="text-[10px] text-[var(--color-zinc-600)] font-mono">
+              {q.points}pt
+            </span>
+            <span className="text-[10px] font-bold text-[var(--color-zinc-300)] tabular-nums font-mono">
+              {q.score}/10
             </span>
           </div>
 
-          {/* Title */}
-          <span className="flex-1 text-sm text-neutral-100 leading-snug text-right" dir="auto">
-            {q.prompt_md}
-          </span>
-
-          {/* Trend */}
-          {q.trend && (
-            <span
-              className={`shrink-0 mt-0.5 text-xs font-bold ${q.trend.direction === 'up' ? 'text-green-400' : 'text-red-400'}`}
-              title={q.trend.reason}
-            >
-              {q.trend.direction === 'up' ? '↑' : '↓'}
-              {q.trend.delta}
+          {/* Main row */}
+          <div className="flex items-center gap-3">
+            {/* Score badge — desktop only */}
+            <span className="hidden sm:flex shrink-0 w-9 h-9 rounded-full bg-[var(--color-surface-overlay)] border border-[var(--color-surface-border)] items-center justify-center text-sm font-bold text-white tabular-nums font-mono">
+              {q.score}
             </span>
-          )}
 
-          {/* Points badge */}
-          <span className="shrink-0 mt-0.5 text-xs text-neutral-500">{q.points}pt</span>
+            {/* Priority + subject — desktop only */}
+            <div className="hidden sm:flex shrink-0 flex-col gap-1 w-16">
+              <span
+                className={`text-[10px] font-semibold px-1.5 py-0.5 rounded text-center ${priority.badge}`}
+              >
+                {priority.label}
+              </span>
+              <span className="text-[10px] text-[var(--color-zinc-500)] uppercase tracking-wide text-center font-mono">
+                {SUBJECT_SHORT[q.subject]}
+              </span>
+            </div>
 
-          {/* Chevron */}
-          <span
-            aria-hidden
-            className={`shrink-0 mt-1 text-neutral-500 transition-transform duration-150 ${expanded ? 'rotate-90' : ''}`}
-          >
-            ›
-          </span>
+            {/* Topic title */}
+            <span
+              className="flex-1 text-sm text-[var(--color-zinc-100)] leading-snug"
+              dir="auto"
+            >
+              {q.prompt_md}
+            </span>
+
+            {/* Trend — desktop */}
+            {q.trend && (
+              <span
+                className={`hidden sm:flex shrink-0 items-center gap-0.5 text-xs font-bold ${q.trend.direction === 'up' ? 'text-emerald-400' : 'text-red-400'}`}
+                title={q.trend.reason}
+              >
+                {q.trend.direction === 'up' ? (
+                  <TrendingUp size={12} />
+                ) : (
+                  <TrendingDown size={12} />
+                )}
+                {q.trend.delta}
+              </span>
+            )}
+
+            {/* Points — desktop */}
+            <span className="hidden sm:block shrink-0 text-xs text-[var(--color-zinc-600)] font-mono">
+              {q.points}pt
+            </span>
+
+            {/* Studied toggle */}
+            <button
+              type="button"
+              onClick={toggleStudied}
+              aria-label={studied ? 'Mark as not studied' : 'Mark as studied'}
+              className={`shrink-0 p-1 rounded-full transition-colors ${
+                studied
+                  ? 'text-emerald-400 hover:text-emerald-300'
+                  : 'text-[var(--color-zinc-600)] hover:text-[var(--color-zinc-400)]'
+              }`}
+            >
+              <CheckCircle2 size={16} />
+            </button>
+
+            {/* Chevron */}
+            <ChevronRight
+              size={16}
+              aria-hidden
+              className={`shrink-0 text-[var(--color-zinc-600)] transition-transform duration-150 ${expanded ? 'rotate-90' : ''}`}
+            />
+          </div>
         </button>
 
         {/* Expanded body */}
         {expanded && (
-          <div className="px-4 pb-5 pt-1 border-t border-[#2a2a35] space-y-4">
+          <div className="pl-4 pr-4 pb-5 pt-1 border-t border-[var(--color-surface-border-subtle)] space-y-4">
             {/* Rationale */}
-            <p className="text-sm text-neutral-300 leading-relaxed" dir="auto">
+            <p className="text-sm text-[var(--color-zinc-300)] leading-relaxed" dir="auto">
               {q.rationale_md}
             </p>
 
             {/* Trend detail */}
             {q.trend && (
               <div
-                className={`flex items-center gap-2 text-xs px-3 py-2 rounded-lg ${q.trend.direction === 'up' ? 'bg-green-900/30 text-green-300' : 'bg-red-900/30 text-red-300'}`}
+                className={`flex items-start gap-2 text-xs px-3 py-2 rounded-lg ${
+                  q.trend.direction === 'up'
+                    ? 'bg-emerald-900/20 text-emerald-300 border border-emerald-900/40'
+                    : 'bg-red-900/20 text-red-300 border border-red-900/40'
+                }`}
               >
-                <span>{q.trend.direction === 'up' ? '↑' : '↓'}</span>
+                {q.trend.direction === 'up' ? (
+                  <TrendingUp size={12} className="mt-0.5 shrink-0" />
+                ) : (
+                  <TrendingDown size={12} className="mt-0.5 shrink-0" />
+                )}
                 <span>{q.trend.reason}</span>
               </div>
             )}
@@ -235,9 +356,7 @@ export function QuestionCard({
             {/* Ref pins */}
             {q.refs && q.refs.length > 0 && (
               <div>
-                <p className="text-[11px] text-neutral-500 uppercase tracking-wide mb-2">
-                  📍 Exact References
-                </p>
+                <SectionLabel icon={<MapPin size={11} />} label="Exact References" />
                 <div className="flex flex-wrap gap-2">
                   {q.refs.map((ref, i) => (
                     <RefPinChip key={i} pin={ref} />
@@ -249,9 +368,7 @@ export function QuestionCard({
             {/* Source links */}
             {q.links && q.links.length > 0 && (
               <div>
-                <p className="text-[11px] text-neutral-500 uppercase tracking-wide mb-2">
-                  📄 Source Documents
-                </p>
+                <SectionLabel icon={<FileText size={11} />} label="Source Documents" />
                 <div className="flex flex-wrap gap-2">
                   {q.links.map((link, i) => (
                     <a
@@ -260,10 +377,11 @@ export function QuestionCard({
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs bg-[#1e1e2e] border border-[#3a3a4a] text-neutral-300 hover:text-white hover:border-violet-500 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs bg-[var(--color-surface-raised)] border border-[var(--color-surface-border)] text-[var(--color-zinc-300)] hover:text-white hover:border-violet-500/60 transition-colors"
                     >
-                      <span>{SOURCE_KIND_ICONS[link.type] ?? '📄'}</span>
+                      {sourceIcon(link.type)}
                       <span>{link.label}</span>
+                      <ExternalLink size={10} className="text-[var(--color-zinc-600)]" />
                     </a>
                   ))}
                 </div>
@@ -273,10 +391,8 @@ export function QuestionCard({
             {/* WhatsApp chat excerpts */}
             {q.chat && q.chat.length > 0 && (
               <div>
-                <p className="text-[11px] text-neutral-500 uppercase tracking-wide mb-2">
-                  💬 Course Chat
-                </p>
-                <div className="space-y-1.5 bg-[#0d0d14] rounded-lg p-3">
+                <SectionLabel icon={<MessageCircle size={11} />} label="Course Chat" />
+                <div className="space-y-1.5 bg-[var(--color-surface-base)] rounded-lg p-3 border border-[var(--color-surface-border-subtle)]">
                   {q.chat.map((msg, i) => (
                     <ChatBubble key={i} message={msg} />
                   ))}
@@ -287,9 +403,7 @@ export function QuestionCard({
             {/* Images grid */}
             {q.images && q.images.length > 0 && (
               <div>
-                <p className="text-[11px] text-neutral-500 uppercase tracking-wide mb-2">
-                  🖼 Whiteboard / Photos
-                </p>
+                <SectionLabel icon={<ImageIcon size={11} />} label="Whiteboard / Photos" />
                 <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
                   {q.images.map((img, i) => (
                     <button
@@ -299,7 +413,7 @@ export function QuestionCard({
                         e.stopPropagation()
                         setLightboxSrc(img.src)
                       }}
-                      className="aspect-square overflow-hidden rounded-lg bg-[#1a1a28] hover:ring-2 hover:ring-violet-500 focus-visible:ring-2 focus-visible:ring-violet-500 transition-all"
+                      className="aspect-square overflow-hidden rounded-lg bg-[var(--color-surface-raised)] hover:ring-2 hover:ring-violet-500/60 focus-visible:ring-2 focus-visible:ring-violet-500 transition-all"
                       title={img.label}
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -316,14 +430,14 @@ export function QuestionCard({
             )}
 
             {/* Action buttons */}
-            <div className="flex flex-wrap gap-2 pt-1">
+            <div className="flex flex-wrap gap-2 pt-2">
               <ActionButton
                 onClick={(e) => {
                   e.stopPropagation()
                   copyPractice(buildPracticePrompt(q))
                 }}
                 copied={practiceCopyState === 'copied'}
-                icon="📋"
+                icon={<Copy size={12} />}
                 label="Copy AI prompt"
                 copiedLabel="Copied!"
               />
@@ -334,7 +448,7 @@ export function QuestionCard({
                   window.open('https://notebooklm.google.com/', '_blank', 'noopener')
                 }}
                 copied={nbCopyState === 'copied'}
-                icon="🧪"
+                icon={<ExternalLink size={12} />}
                 label="Open NotebookLM"
                 copiedLabel="Prompt copied!"
               />
@@ -344,21 +458,10 @@ export function QuestionCard({
                   copySrc(buildSourceList(q, siteOrigin))
                 }}
                 copied={srcCopyState === 'copied'}
-                icon="📚"
+                icon={<Copy size={12} />}
                 label="Copy source URLs"
                 copiedLabel="URLs copied!"
               />
-              <button
-                type="button"
-                onClick={toggleStudied}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
-                  studied
-                    ? 'bg-green-900/40 border-green-700 text-green-300'
-                    : 'bg-[#1e1e2e] border-[#3a3a4a] text-neutral-400 hover:text-white'
-                }`}
-              >
-                {studied ? '✓ Studied' : 'Mark studied'}
-              </button>
             </div>
           </div>
         )}
@@ -376,7 +479,7 @@ export function QuestionCard({
           <button
             type="button"
             aria-label="Close"
-            className="absolute top-4 right-4 text-white text-2xl hover:text-neutral-300"
+            className="absolute top-4 right-4 p-2 text-white hover:text-[var(--color-zinc-300)] transition-colors"
             onClick={() => setLightboxSrc(null)}
           >
             ✕
@@ -394,20 +497,29 @@ export function QuestionCard({
   )
 }
 
+function SectionLabel({ icon, label }: { icon: React.ReactNode; label: string }) {
+  return (
+    <p className="flex items-center gap-1.5 text-[10px] text-[var(--color-zinc-500)] uppercase tracking-wider mb-2">
+      {icon}
+      {label}
+    </p>
+  )
+}
+
 function RefPinChip({ pin }: { pin: RefPin }) {
-  const icon = SOURCE_KIND_ICONS[pin.type] ?? '📄'
   return (
     <a
       href={pin.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs bg-[#12121c] border border-[#3a3a4a] text-neutral-400 hover:text-white hover:border-violet-500 transition-colors"
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs bg-[var(--color-surface-raised)] border border-[var(--color-surface-border)] text-[var(--color-zinc-400)] hover:text-white hover:border-violet-500/60 transition-colors"
       title={pin.loc}
     >
-      <span>{icon}</span>
-      <span className="font-medium text-neutral-300">{pin.file}</span>
-      <span className="text-neutral-600">→</span>
+      <MapPin size={10} />
+      <span className="font-medium text-[var(--color-zinc-300)]">{pin.file}</span>
+      <span className="text-[var(--color-zinc-700)]">→</span>
       <span className="max-w-[180px] truncate">{pin.loc}</span>
+      <ExternalLink size={9} className="text-[var(--color-zinc-700)] shrink-0" />
     </a>
   )
 }
@@ -417,8 +529,10 @@ function ChatBubble({ message }: { message: ChatMessage }) {
   return (
     <div className={`flex gap-2 ${isDima ? 'flex-row-reverse' : ''}`}>
       <span
-        className={`shrink-0 text-xs font-semibold px-1.5 py-0.5 rounded self-start mt-0.5 ${
-          isDima ? 'bg-violet-900/50 text-violet-300' : 'bg-[#1e1e2e] text-neutral-400'
+        className={`shrink-0 text-[10px] font-semibold px-1.5 py-0.5 rounded self-start mt-0.5 ${
+          isDima
+            ? 'bg-violet-900/50 text-violet-300'
+            : 'bg-[var(--color-surface-overlay)] text-[var(--color-zinc-400)]'
         }`}
       >
         {message.s}
@@ -427,8 +541,8 @@ function ChatBubble({ message }: { message: ChatMessage }) {
         dir="rtl"
         className={`text-xs leading-relaxed rounded-lg px-3 py-2 max-w-[75%] ${
           isDima
-            ? 'bg-violet-900/30 text-violet-100 rounded-tr-none'
-            : 'bg-[#1a1a28] text-neutral-300 rounded-tl-none'
+            ? 'bg-violet-900/25 text-violet-100 rounded-tr-none border border-violet-900/40'
+            : 'bg-[var(--color-surface-raised)] text-[var(--color-zinc-300)] rounded-tl-none'
         }`}
       >
         {message.t}
@@ -440,7 +554,7 @@ function ChatBubble({ message }: { message: ChatMessage }) {
 type ActionButtonProps = {
   onClick: (e: React.MouseEvent) => void
   copied: boolean
-  icon: string
+  icon: React.ReactNode
   label: string
   copiedLabel: string
 }
@@ -450,13 +564,13 @@ function ActionButton({ onClick, copied, icon, label, copiedLabel }: ActionButto
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
         copied
-          ? 'bg-green-900/40 border-green-700 text-green-300'
-          : 'bg-[#1e1e2e] border-[#3a3a4a] text-neutral-300 hover:text-white hover:border-violet-500'
+          ? 'bg-emerald-900/30 border-emerald-800/60 text-emerald-300'
+          : 'bg-[var(--color-surface-raised)] border-[var(--color-surface-border)] text-[var(--color-zinc-300)] hover:text-white hover:border-violet-500/50'
       }`}
     >
-      <span>{icon}</span>
+      {copied ? <Check size={12} className="text-emerald-400" /> : icon}
       <span>{copied ? copiedLabel : label}</span>
     </button>
   )

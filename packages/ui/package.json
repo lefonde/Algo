@@ -13,7 +13,8 @@
   "dependencies": {
     "@repo/content": "workspace:*",
     "@repo/shared": "workspace:*",
-    "@repo/tokens": "workspace:*"
+    "@repo/tokens": "workspace:*",
+    "lucide-react": "^1.11.0"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",

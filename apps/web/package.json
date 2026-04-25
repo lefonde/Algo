@@ -10,11 +10,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.54.0",
     "@repo/content": "workspace:*",
     "@repo/shared": "workspace:*",
     "@repo/tokens": "workspace:*",
     "@repo/ui": "workspace:*",
-    "@anthropic-ai/sdk": "^0.54.0",
+    "lucide-react": "^1.11.0",
     "next": "^15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

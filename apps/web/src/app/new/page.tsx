@@ -1,23 +1,20 @@
+import { TopBar } from '@/components/top-bar'
 import NewCourseForm from './new-course-form'
 
 export default function NewCoursePage() {
   return (
-    <main className="min-h-screen px-4 py-12 md:px-10 md:py-20 max-w-2xl mx-auto">
-      <a
-        href="/"
-        className="text-sm text-neutral-500 hover:text-neutral-300 transition-colors mb-8 inline-block"
-      >
-        ← All courses
-      </a>
+    <>
+      <TopBar />
+      <main className="max-w-2xl mx-auto px-4 md:px-8 py-10 md:py-14">
+        <header className="mb-8">
+          <h1 className="font-display text-3xl text-white">New course</h1>
+          <p className="mt-1.5 text-[var(--color-zinc-500)] text-sm">
+            Create a course skeleton. Add material and predictions after.
+          </p>
+        </header>
 
-      <header className="mb-10">
-        <h1 className="text-3xl font-bold text-white">New course</h1>
-        <p className="mt-2 text-neutral-400 text-sm">
-          Create a course skeleton. You can add material and predictions after.
-        </p>
-      </header>
-
-      <NewCourseForm />
-    </main>
+        <NewCourseForm />
+      </main>
+    </>
   )
 }

@@ -1,30 +1,97 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-500: #7c3aed;
-  --color-primary-400: #a066ff;
-  --color-accent-purple: #6c63ff;
-  --color-accent-pink: #ff6b9d;
-  --color-surface-dark: #0f0f11;
-  --color-surface-card: #1a1a1f;
-  --color-surface-border: #2a2a35;
+  /* Primary accent */
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+  --color-violet-700: #6d28d9;
+  --color-violet-900: #2e1065;
+  --color-violet-950: #1a0a3d;
 
-  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-hebrew: Heebo, Rubik, ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  /* Semantic priority colors */
+  --color-critical: #f87171;   /* red-400 */
+  --color-high: #fb923c;       /* orange-400 */
+  --color-medium: #facc15;     /* yellow-400 */
+
+  /* Zinc neutrals — cooler, more considered than the previous arbitrary off-blacks */
+  --color-zinc-50:  #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-850: #1f1f22;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+
+  /* Surfaces */
+  --color-surface-base: #0c0c0f;
+  --color-surface-card: #131316;
+  --color-surface-raised: #1a1a1e;
+  --color-surface-overlay: #222228;
+  --color-surface-border: #2a2a32;
+  --color-surface-border-subtle: #1f1f26;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-hebrew: var(--font-heebo), Rubik, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "Cascadia Code", monospace;
 }
 
 :root {
   color-scheme: dark;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  background-color: var(--color-surface-dark);
-  color: #e4e4e7;
+  background-color: var(--color-surface-base);
+  color: var(--color-zinc-200);
   font-family: var(--font-sans);
 }
 
 [lang="he"],
 [dir="rtl"] {
   font-family: var(--font-hebrew);
+}
+
+/* Horizontal scroll container for filter chips */
+.chip-scroll {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 2px;
+}
+.chip-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fade mask on horizontal scroll ends */
+.chip-scroll-wrap {
+  position: relative;
+}
+.chip-scroll-wrap::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 2px;
+  width: 3rem;
+  background: linear-gradient(to left, var(--color-surface-base), transparent);
+}
+
+/* Subtle page gradient at top */
+.page-glow {
+  background: radial-gradient(ellipse 80% 40% at 50% -10%, rgba(139,92,246,0.08) 0%, transparent 70%);
 }
