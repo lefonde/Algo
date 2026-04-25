@@ -39,12 +39,22 @@ export default async function PredictionsPage({ params }: Params) {
         >
           ← {isRtl ? course.title_he : course.title_en}
         </Link>
-        <Link
-          href={`/${slug}/revise`}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-700 hover:bg-violet-600 text-white text-sm font-medium transition-colors"
-        >
-          🔄 Revise predictions
-        </Link>
+        <div className="flex items-center gap-3">
+          {trends && (
+            <Link
+              href={`/${slug}/trends`}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-amber-800/50 text-amber-400 hover:bg-amber-950/30 text-sm font-medium transition-colors"
+            >
+              ⚡ Trends
+            </Link>
+          )}
+          <Link
+            href={`/${slug}/revise`}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-700 hover:bg-violet-600 text-white text-sm font-medium transition-colors"
+          >
+            🔄 Revise
+          </Link>
+        </div>
       </div>
 
       <header className="mb-10">
