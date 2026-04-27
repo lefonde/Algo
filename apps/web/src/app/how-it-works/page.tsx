@@ -13,7 +13,9 @@ import {
   FileText,
   MessageCircle,
   Zap,
-  Info,
+  Sparkles,
+  Maximize2,
+  Paperclip,
 } from 'lucide-react'
 import { TopBar } from '@/components/top-bar'
 
@@ -35,7 +37,14 @@ export default function HowItWorksPage() {
         </header>
 
         {/* Quick reference cards */}
-        <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+          <QuickCard
+            href="#workspace"
+            icon={<Sparkles size={18} className="text-violet-400" />}
+            title="Question workspace"
+            desc="AI variants, tutor chat, and per-question attachments"
+            color="border-violet-900/30 hover:border-violet-500/40"
+          />
           <QuickCard
             href="#add-material"
             icon={<Upload size={18} className="text-sky-400" />}
@@ -77,6 +86,69 @@ export default function HowItWorksPage() {
               before anything is written. You stay in control.
             </p>
           </div>
+        </Section>
+
+        {/* Question Workspace */}
+        <Section
+          id="workspace"
+          icon={<Sparkles size={16} className="text-violet-400" />}
+          title="The question workspace"
+        >
+          <FlowBlock
+            when="When to do this"
+            whenText="When you want to actually study a question — not just see its score. Generate practice variants, ask the AI tutor follow-up questions, and attach materials specific to this question."
+          />
+          <HowBlock
+            steps={[
+              <>
+                On <Mono>/advanced-algorithms/predictions</Mono>, click the small{' '}
+                <Maximize2 className="inline" size={11} /> icon on any question card
+              </>,
+              <>
+                Click <strong className="text-white">Generate 3 variants</strong> — Claude writes
+                three new exam-style questions on this topic, each with progressive hints, full
+                Hebrew solutions, and common-mistake notes. Variants accumulate; old ones stay.
+              </>,
+              <>
+                Open the AI tutor on the right and ask anything: &ldquo;explain step 3&rdquo;,
+                &ldquo;why does this proof work?&rdquo;, &ldquo;give me a similar problem&rdquo;.
+                Streaming Hebrew + KaTeX math.
+              </>,
+              <>
+                Drop files into <strong className="text-white">Attachments</strong> at the bottom —
+                a PDF of your maman attempt, a photo of board notes. The tutor and variant generator
+                see them as context.
+              </>,
+              <>
+                Use{' '}
+                <a
+                  href="/api/questions/ds-1/export?slug=advanced-algorithms"
+                  className="text-violet-400 hover:text-violet-300 underline underline-offset-2"
+                >
+                  ⬇ Export this question's JSON
+                </a>{' '}
+                to download the modified question (with variants and tutor history) for committing
+                to the repo.
+              </>,
+            ]}
+          />
+          <BehindBlock>
+            Three API routes: <Mono>/api/questions/[id]/generate-variants</Mono> sends Claude the
+            current question + scoring weights + trends + insights + attachments and parses a
+            structured JSON array of variants. <Mono>/api/questions/[id]/tutor</Mono> streams
+            Claude's response token-by-token via a ReadableStream and persists the user/assistant
+            pair to the question's <Mono>tutor_history[]</Mono>.{' '}
+            <Mono>/api/questions/[id]/attach</Mono> takes a multipart upload, saves under{' '}
+            <Mono>uploads/&#123;questionId&#125;/</Mono>, and appends to <Mono>attachments[]</Mono>.
+            All three write directly to <Mono>predictions.json</Mono> — additive, never destructive.
+          </BehindBlock>
+          <Caveat>
+            <strong>Same Vercel-ephemeral caveat as everything else.</strong> Generated variants,
+            tutor history, and uploaded attachments persist on local dev (the JSON file is written)
+            but are wiped on the next Vercel deploy. The <Mono>?</Mono> Export button gives you a
+            clean way to download the modified question and paste it back into the repo before
+            pushing.
+          </Caveat>
         </Section>
 
         {/* Add material */}

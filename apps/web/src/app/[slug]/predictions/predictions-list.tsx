@@ -16,13 +16,14 @@ const SUBJECT_LABELS: Record<string, string> = {
 }
 
 type Props = {
+  slug: string
   questions: Question[]
   insights?: Insight[]
   trends?: Trends | null
   siteOrigin?: string
 }
 
-export function PredictionsList({ questions, insights, trends, siteOrigin = '' }: Props) {
+export function PredictionsList({ slug, questions, insights, trends, siteOrigin = '' }: Props) {
   const [subjectFilter, setSubjectFilter] = useState<Subject>('all')
   const [priorityFilter, setPriorityFilter] = useState<Priority>('all')
   const [search, setSearch] = useState('')
@@ -48,9 +49,7 @@ export function PredictionsList({ questions, insights, trends, siteOrigin = '' }
     .filter((q) => {
       if (!search) return true
       const term = search.toLowerCase()
-      return (
-        q.prompt_md.toLowerCase().includes(term) || q.rationale_md.toLowerCase().includes(term)
-      )
+      return q.prompt_md.toLowerCase().includes(term) || q.rationale_md.toLowerCase().includes(term)
     })
     .sort((a, b) => b.score - a.score)
 
@@ -167,6 +166,7 @@ export function PredictionsList({ questions, insights, trends, siteOrigin = '' }
               key={q.id}
               question={q}
               siteOrigin={siteOrigin}
+              workspaceHref={`/${slug}/q/${q.id}`}
               trendsContext={trendsContext}
               insightsContext={insightsContext}
             />
@@ -187,9 +187,15 @@ type FilterChipProps = {
 function FilterChip({ active, onClick, label, priority }: FilterChipProps) {
   const priorityColor = priority
     ? {
-        critical: active ? 'bg-red-900/60 text-red-300 border-red-800/60' : 'text-red-500/70 border-[var(--color-surface-border)] hover:border-red-800/60 hover:text-red-400',
-        high: active ? 'bg-orange-900/60 text-orange-300 border-orange-800/60' : 'text-orange-500/70 border-[var(--color-surface-border)] hover:border-orange-800/60 hover:text-orange-400',
-        medium: active ? 'bg-yellow-900/60 text-yellow-300 border-yellow-800/60' : 'text-yellow-500/70 border-[var(--color-surface-border)] hover:border-yellow-800/60 hover:text-yellow-400',
+        critical: active
+          ? 'bg-red-900/60 text-red-300 border-red-800/60'
+          : 'text-red-500/70 border-[var(--color-surface-border)] hover:border-red-800/60 hover:text-red-400',
+        high: active
+          ? 'bg-orange-900/60 text-orange-300 border-orange-800/60'
+          : 'text-orange-500/70 border-[var(--color-surface-border)] hover:border-orange-800/60 hover:text-orange-400',
+        medium: active
+          ? 'bg-yellow-900/60 text-yellow-300 border-yellow-800/60'
+          : 'text-yellow-500/70 border-[var(--color-surface-border)] hover:border-yellow-800/60 hover:text-yellow-400',
       }[priority]
     : null
 

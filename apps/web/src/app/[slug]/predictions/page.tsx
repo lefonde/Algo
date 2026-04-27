@@ -69,6 +69,7 @@ export default async function PredictionsPage({ params }: Params) {
           </div>
         ) : (
           <PredictionsList
+            slug={slug}
             questions={predictions.questions}
             insights={insights?.items}
             trends={trends}

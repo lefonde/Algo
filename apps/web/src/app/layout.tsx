@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Instrument_Serif, Heebo, JetBrains_Mono } from 'next/font/google'
+import 'katex/dist/katex.min.css'
 import './globals.css'
 
 const inter = Inter({

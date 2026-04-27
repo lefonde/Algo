@@ -16,6 +16,7 @@ import {
   TrendingUp,
   TrendingDown,
   CheckCircle2,
+  Maximize2,
 } from 'lucide-react'
 import type { Question, RefPin, ChatMessage, Image as QImage } from '@repo/content'
 
@@ -168,6 +169,7 @@ function buildSourceList(q: Question, siteOrigin: string): string {
 export type QuestionCardProps = {
   question: Question
   siteOrigin?: string
+  workspaceHref?: string
   trendsContext?: { absences: string[]; confirmed: string[] }
   insightsContext?: string[]
   initialStudied?: boolean
@@ -177,6 +179,7 @@ export type QuestionCardProps = {
 export function QuestionCard({
   question: q,
   siteOrigin = '',
+  workspaceHref,
   trendsContext,
   insightsContext,
   initialStudied = false,
@@ -240,18 +243,12 @@ export function QuestionCard({
               <span
                 className={`flex items-center gap-0.5 text-[10px] font-bold ${q.trend.direction === 'up' ? 'text-emerald-400' : 'text-red-400'}`}
               >
-                {q.trend.direction === 'up' ? (
-                  <TrendingUp size={10} />
-                ) : (
-                  <TrendingDown size={10} />
-                )}
+                {q.trend.direction === 'up' ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
                 {q.trend.delta}
               </span>
             )}
             <span className="flex-1" />
-            <span className="text-[10px] text-[var(--color-zinc-600)] font-mono">
-              {q.points}pt
-            </span>
+            <span className="text-[10px] text-[var(--color-zinc-600)] font-mono">{q.points}pt</span>
             <span className="text-[10px] font-bold text-[var(--color-zinc-300)] tabular-nums font-mono">
               {q.score}/10
             </span>
@@ -277,10 +274,7 @@ export function QuestionCard({
             </div>
 
             {/* Topic title */}
-            <span
-              className="flex-1 text-sm text-[var(--color-zinc-100)] leading-snug"
-              dir="auto"
-            >
+            <span className="flex-1 text-sm text-[var(--color-zinc-100)] leading-snug" dir="auto">
               {q.prompt_md}
             </span>
 
@@ -290,11 +284,7 @@ export function QuestionCard({
                 className={`hidden sm:flex shrink-0 items-center gap-0.5 text-xs font-bold ${q.trend.direction === 'up' ? 'text-emerald-400' : 'text-red-400'}`}
                 title={q.trend.reason}
               >
-                {q.trend.direction === 'up' ? (
-                  <TrendingUp size={12} />
-                ) : (
-                  <TrendingDown size={12} />
-                )}
+                {q.trend.direction === 'up' ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
                 {q.trend.delta}
               </span>
             )}
@@ -317,6 +307,19 @@ export function QuestionCard({
             >
               <CheckCircle2 size={16} />
             </button>
+
+            {/* Workspace link */}
+            {workspaceHref && (
+              <a
+                href={workspaceHref}
+                onClick={(e) => e.stopPropagation()}
+                aria-label="Open workspace"
+                title="Open workspace"
+                className="shrink-0 p-1 rounded-full text-[var(--color-zinc-600)] hover:text-violet-400 transition-colors"
+              >
+                <Maximize2 size={14} />
+              </a>
+            )}
 
             {/* Chevron */}
             <ChevronRight
